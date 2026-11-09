@@ -18,4 +18,18 @@
   - Local Note: `notes/topic-1-1-ioc.md`
   - Flashcards: `flashcards/topic-1-1-ioc.csv`
   - Notion Note: Published to `https://app.notion.com/p/4133bf92ecc8819da393da675e28be18?pvs=204` under "🌱 Spring Boot API Lab"
-- **Next Mission:** Topic 1.2: The Spring ApplicationContext & BeanFactory.
+### Session 2 — 2026-11-09: Topic 1.2 Completed (ApplicationContext & BeanFactory)
+- **Status:** Completed (Passed Mastery Gate)
+- **Stages Executed:**
+  - Stage 1 (Confirm): Calibrated startup time expectations and JVM heap allocation.
+  - Stage 2 (Explain Why): Deconstructed the "2 AM production landmine" in BeanFactory lazy loading; explained Fail-Fast eager pre-instantiation.
+  - Stage 3 (Teach Concept): Showed `BeanDefinition` metadata blueprint vs singleton heap cache; walked through `refresh()` lifecycle.
+  - Stage 4 (Build Exercise): Extended continuous order processing domain in `exercises/topic-1-2-application-context/` with `ContainerInspectorService`; proved singleton reference equality (`ref1 == ref2`).
+  - Stage 5 (Inject Bug): Injected `AuditService` in external package `com.mastery.audit`, triggering `NoSuchBeanDefinitionException`. Learner accurately diagnosed missing package scan.
+  - Stage 6 (Go Deeper): Explained ASM bytecode scanning in `ClassPathScanningCandidateComponentProvider` without classloading.
+  - Stage 7 (Debrief): Learner gave an interview-grade debrief explaining package structure importance and component scanning mechanics.
+- **Artifacts Generated:**
+  - Local Note: `notes/topic-1-2-application-context.md`
+  - Flashcards: `flashcards/topic-1-2-application-context.csv`
+  - Notion Note: Published to `https://app.notion.com/p/4133bf92ecc881488a55e450b53c183c?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Topic 1.3: Bean Definition, Injection Styles & Stereotype Annotations.

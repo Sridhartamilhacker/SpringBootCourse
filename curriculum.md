@@ -17,7 +17,7 @@
 - [x] **Topic 1.1: Why Spring & Inversion of Control (IoC)**
   - *Focus:* Tight coupling vs. loose coupling, why `new` keyword kills testability and extensibility, Dependency Injection (DI) as a design pattern.
   - *Reference:* *Spring in Action*, Ch. 1; *Pro Spring 6*, Ch. 3.
-- [ ] **Topic 1.2: The Spring ApplicationContext & BeanFactory**
+- [x] **Topic 1.2: The Spring ApplicationContext & BeanFactory**
   - *Focus:* What a "Bean" actually is in heap memory, `ApplicationContext` hierarchy, instantiating and inspecting beans programmatically.
   - *Reference:* *Spring Framework Core Documentation — The IoC Container*.
 - [ ] **Topic 1.3: Bean Definition, Injection Styles & Stereotype Annotations**
