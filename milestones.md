@@ -2,6 +2,16 @@
 
 *Achievements unlocked through demonstrated mastery and verified bug fixes.*
 
+### 🏆 Badge 3: The Architect's Seam — Stereotypes & Circular Dependency Resolution Mastered
+- **Unlocked:** 2026-11-10
+- **Competencies Mastered:**
+  - Deconstructed why `@Service` and `@Repository` are meta-annotations wrapping `@Component`.
+  - Mastered `@Repository`'s unique runtime behavior: automatic exception translation via `PersistenceExceptionTranslationPostProcessor`.
+  - Understood why Constructor Injection is the industry gold standard over Field Injection (immutability, fail-fast, pure unit testing).
+  - Diagnosed and resolved `BeanCurrentlyInCreationException` caused by circular dependencies.
+  - Explored Spring internals in `DefaultSingletonBeanRegistry` tracking in-flight singletons in `singletonsCurrentlyInCreation`.
+  - Published master notes to Notion and compiled Anki flashcards.
+
 ### 🏆 Badge 2: The Cartographer — ApplicationContext & Component Scanning Mastered
 - **Unlocked:** 2026-11-09
 - **Competencies Mastered:**

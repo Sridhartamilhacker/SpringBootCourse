@@ -20,7 +20,7 @@
 - [x] **Topic 1.2: The Spring ApplicationContext & BeanFactory**
   - *Focus:* What a "Bean" actually is in heap memory, `ApplicationContext` hierarchy, instantiating and inspecting beans programmatically.
   - *Reference:* *Spring Framework Core Documentation — The IoC Container*.
-- [ ] **Topic 1.3: Bean Definition, Injection Styles & Stereotype Annotations**
+- [x] **Topic 1.3: Bean Definition, Injection Styles & Stereotype Annotations**
   - *Focus:* `@Component`, `@Service`, `@Repository`, constructor injection vs. field injection (`@Autowired` pitfalls), circular dependency handling.
   - *Reference:* *Spring in Action*, Ch. 2; Effective Java Item 5.
 - [ ] **Topic 1.4: Java Configuration & `@Bean` Methods**
