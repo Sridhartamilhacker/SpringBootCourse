@@ -1,50 +1,20 @@
 # 🌱 Spring Boot Mastery Laboratory
 
-> A practical, code-first journey through Spring Framework and Spring Boot internals, built using the **Seven-Stage Mastery Engine**. Every topic is mastered by deconstructing the framework's magic, building real-world enterprise exercises, diagnosing injected production bugs, and debriefing like a senior backend engineer.
+> **Our Approach:** **Learn by building first!** Using the **Feynman Technique**, we break concepts down into simple, real-world analogies with zero overwhelming jargon. We build real, visible web APIs first so you see your code working in the browser, and then later look under the hood at advanced internals.
 
 ---
 
-## 🧭 Learning Methodology: The Seven-Stage Mastery Loop
+## 🧭 The Road to Mastery
 
-Every topic in this course passes through seven rigorous stages before the gate opens to the next concept:
+### 🌟 Part 1: The Practical Playground (Beginner Friendly)
+- [ ] **Step 1: Hello Spring Boot — Your First Running Web API** *(Current Mission)*
+- [ ] **Step 2: Passing Data — How the Web Talks to Your Code**
+- [ ] **Step 3: Building a Real In-Memory CRUD API**
+- [ ] **Step 4: Making Data Permanent (Spring Data JPA & H2 Database)**
+- [ ] **Step 5: Friendly Error Messages & Status Codes**
 
-1. **Confirm:** Calibrate mental models and define scope.
-2. **Explain Why:** Deconstruct the real pain point that forced Spring's creators to build the feature.
-3. **Teach Concept:** Live interactive session deconstructing the magic using raw vanilla Java first.
-4. **Build Exercise:** Author an authentic, runnable, production-ready system adhering to SOLID principles.
-5. **Inject Bug:** Introduce a realistic production failure mode (the primary learning instrument).
-6. **Go Deeper:** Trace the runtime internals and actual framework source code.
-7. **Debrief:** Explain root cause, diagnosis, and architectural trade-offs in an interview format.
-
----
-
-## 🗺️ Curriculum & Progress
-
-The full sequenced roadmap is tracked in [`curriculum.md`](curriculum.md).
-
-### Phase 1: Core Spring & IoC Fundamentals (In Progress)
-- [x] **Topic 1.1: Why Spring & Inversion of Control (IoC)**
-  - *Code:* [`exercises/topic-1-1-ioc/`](exercises/topic-1-1-ioc/)
-  - *Deep Notes:* [`notes/topic-1-1-ioc.md`](notes/topic-1-1-ioc.md) | [Notion](https://app.notion.com/p/4133bf92ecc8819da393da675e28be18?pvs=204)
-  - *Mastery Unlocked:* The death of `new`, loose coupling, constructor injection, and resolving `NoUniqueBeanDefinitionException` via `@Primary` vs `@Qualifier`.
-- [x] **Topic 1.2: The Spring ApplicationContext & BeanFactory**
-  - *Code:* [`exercises/topic-1-2-application-context/`](exercises/topic-1-2-application-context/)
-  - *Deep Notes:* [`notes/topic-1-2-application-context.md`](notes/topic-1-2-application-context.md) | [Notion](https://app.notion.com/p/4133bf92ecc881488a55e450b53c183c?pvs=204)
-  - *Mastery Unlocked:* Eager pre-instantiation ("Fail-Fast"), two-phase startup (`BeanDefinition` vs singleton heap cache), container introspection, and ASM bytecode scanning.
-- [x] **Topic 1.3: Bean Definition, Injection Styles & Stereotypes**
-  - *Code:* [`exercises/topic-1-3-injection-styles/`](exercises/topic-1-3-injection-styles/)
-  - *Deep Notes:* [`notes/topic-1-3-injection-styles.md`](notes/topic-1-3-injection-styles.md) | [Notion](https://app.notion.com/p/4143bf92ecc8810db8d8e2025d9adefb?pvs=204)
-  - *Mastery Unlocked:* `@Component` vs `@Service` vs `@Repository`, `@Repository` dynamic proxy exception translation, field injection hazards, and breaking circular dependencies (`BeanCurrentlyInCreationException`).
-- [ ] **Topic 1.4: Java Configuration & `@Bean` Methods** *(Next Mission)*
-- [ ] **Topic 1.5: Bean Lifecycle & Scopes**
-
-### Upcoming Phases
-- **Phase 2:** Demystifying Spring Boot (Auto-Configuration, Starters, Actuator)
-- **Phase 3:** Modern Web APIs with Spring MVC (REST, DTOs, Jakarta Validation, RFC 7807)
-- **Phase 4:** Data Persistence with Spring Data JPA & Hibernate
-- **Phase 5:** Asynchronous Processing & Task Scheduling
-- **Phase 6:** Testing Strategy (MockMvc, `@DataJpaTest`, `@SpringBootTest`, Testcontainers)
-- **Phase 7:** Production Readiness & Observability
+### 🔬 Part 2: Looking Under the Hood (Advanced Internals)
+- Deep Dive into Auto-Configuration, `DispatcherServlet`, Transactions, and Production Actuator.
 
 ---
 
