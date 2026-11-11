@@ -13,4 +13,13 @@
 - **Artifacts Generated:**
   - Local Note: `notes/01-hello-spring-boot.md`
   - Notion Note: Published to `https://app.notion.com/p/4153bf92ecc88136b600e794d326b45d?pvs=204` under "🌱 Spring Boot API Lab"
-- **Next Mission:** Step 2: Passing Data — How the Web Talks to Your Code (`@RequestParam` & `@PathVariable`).
+### Session 2 — 2026-11-11: Passing Data (Query Params & Path Variables)
+- **Milestone 2 Completed:** Step 2 — Passing Data via `@RequestParam` & `@PathVariable`.
+- **Hands-On Work:**
+  - Added `@RequestParam(defaultValue = "Friend") String name` for `/greet`.
+  - Added `@PathVariable int id` for `/orders/{id}`.
+  - Tested dynamic parameters and automatic string-to-int conversion.
+- **Artifacts Generated:**
+  - Local Note: `notes/02-passing-data.md`
+  - Notion Note: Published to `https://app.notion.com/p/4153bf92ecc881fdb09cdd12181095e9?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Step 3: Building a Real In-Memory CRUD API (Task Tracker with JSON).

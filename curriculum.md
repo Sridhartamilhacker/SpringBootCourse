@@ -12,7 +12,7 @@
   - *What we do:* Create a 1-file Spring Boot app, start the embedded server, visit `http://localhost:8080/hello`, and see a greeting in your browser.
   - *Feynman concept:* What is a server, what is an HTTP request, and what does Spring Boot do behind the curtain?
 
-- [ ] **Step 2: Passing Data — How the Web Talks to Your Code**
+- [x] **Step 2: Passing Data — How the Web Talks to Your Code**
   - *What we do:* Teach our API to accept names, IDs, and search words via URLs (`@RequestParam`, `@PathVariable`).
   - *Feynman concept:* The web is just sending text messages between computers.
 
