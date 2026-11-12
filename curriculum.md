@@ -16,7 +16,7 @@
   - *What we do:* Teach our API to accept names, IDs, and search words via URLs (`@RequestParam`, `@PathVariable`).
   - *Feynman concept:* The web is just sending text messages between computers.
 
-- [ ] **Step 3: Building a Real In-Memory CRUD API (Task Tracker / Bookstore)**
+- [x] **Step 3: Building a Real In-Memory CRUD API (Task Tracker / Bookstore)**
   - *What we do:* Build a complete system where you can **C**reate, **R**ead, **U**pdate, and **D**elete items using JSON.
   - *Feynman concept:* What is JSON, what are HTTP methods (`GET`, `POST`, `PUT`, `DELETE`), and how does `@RequestBody` turn JSON text into Java objects?
 

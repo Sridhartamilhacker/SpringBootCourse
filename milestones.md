@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 📋 Milestone 3: The Builder — Full CRUD REST API with JSON Mastered!
+- **Unlocked:** 2026-11-12
+- **What You Accomplished:**
+  - Created a brand-new Spring Boot project using IntelliJ IDEA.
+  - Built a domain model `Task.java` with POJO conventions (getters, setters, constructors).
+  - Wrote a full `@RestController` supporting all 4 HTTP verbs: `GET`, `POST`, `PUT`, `DELETE`.
+  - Mastered `@RequestBody` for incoming JSON translation.
+  - Verified end-to-end CRUD lifecycle: Reading tasks, adding task #3, updating task #2, and deleting task #1.
+
 ### ✉️ Milestone 2: The Conversationalist — Passing Data via URLs
 - **Unlocked:** 2026-11-11
 - **What You Accomplished:**

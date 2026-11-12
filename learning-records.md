@@ -22,4 +22,20 @@
 - **Artifacts Generated:**
   - Local Note: `notes/02-passing-data.md`
   - Notion Note: Published to `https://app.notion.com/p/4153bf92ecc881fdb09cdd12181095e9?pvs=204` under "🌱 Spring Boot API Lab"
-- **Next Mission:** Step 3: Building a Real In-Memory CRUD API (Task Tracker with JSON).
+### Session 3 — 2026-11-12: Full CRUD REST API with JSON in IntelliJ IDEA
+- **Milestone 3 Completed:** Step 3 — Building a Real In-Memory CRUD API (Task Manager).
+- **Hands-On Work:**
+  - User created `02-task-manager-api` using IntelliJ IDEA's Maven project creation.
+  - User wrote `Task.java` (POJO model) and `TaskManagerApplication.java` (`@SpringBootApplication`).
+  - User wrote `TaskController.java` with `@RestController`, `@RequestMapping("/tasks")`.
+  - Implemented all 4 CRUD actions: `GET` all, `GET` by ID, `POST` with `@RequestBody`, `PUT` with `@PathVariable` and `@RequestBody`, and `DELETE`.
+  - Verified live via curl:
+    - Initial `GET /tasks`: 2 items returned as JSON array.
+    - `POST /tasks`: Added item #3 with JSON body.
+    - `PUT /tasks/2`: Updated item #2 `completed` status to `true`.
+    - `DELETE /tasks/1`: Deleted item #1.
+    - Final `GET /tasks`: Confirmed state persistence in memory across requests.
+- **Artifacts Generated:**
+  - Local Note: `notes/03-crud-api.md`
+  - Notion Note: Published to `https://app.notion.com/p/4163bf92ecc881549b4fc5299ce7d2e8?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Step 4: Making Data Permanent (Spring Data JPA & H2 Database).
