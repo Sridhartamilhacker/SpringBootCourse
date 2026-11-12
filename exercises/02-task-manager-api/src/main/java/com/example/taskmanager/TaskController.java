@@ -8,49 +8,37 @@ import java.util.List;
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private final List<Task> tasks = new ArrayList<>();
-    private long nextId = 1;
-    public TaskController(){
-        tasks.add(new Task(nextId++, "Learn Spring Boot with Feynman", true));
-        tasks.add(new Task(nextId++, "Build my first CRUD Web API", false));
+    private final TaskRepository taskRepository;
+    public TaskController(TaskRepository taskRepository){
+        this.taskRepository = taskRepository;
 
     }
     @GetMapping
     public List<Task> getTasks(){
-        return tasks;
+        return taskRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Task getTaskById(@PathVariable Long id){
-        for(Task task : tasks){
-            if(task.getId().equals(id)){
-                return task;
-            }
-        }
-        return null;
+        return taskRepository.findById(id).orElse(null);
     }
 
     @PostMapping
     public Task creatTask(@RequestBody Task newTask){
-        newTask.setId(nextId++);
-        tasks.add(newTask);
-        return newTask;
+        return taskRepository.save(newTask);
     }
 
     @PutMapping("/{id}")
-    public Task updateTask(@PathVariable Long id, @RequestBody Task oldTask){
-        for(Task task : tasks){
-            if(task.getId().equals(id)){
-                task.setCompleted(oldTask.isCompleted());
-                task.setTitle(oldTask.getTitle());
-                return task;
-            }
-        }
-        return null;
+    public Task updateTask(@PathVariable Long id, @RequestBody Task updated){
+        return taskRepository.findById(id).map(task -> {
+            task.setTitle(updated.getTitle());
+            task.setCompleted(updated.isCompleted());
+            return taskRepository.save(task);
+        }).orElse(null);
     }
     @DeleteMapping("/{id}")
     public String deleteTask(@PathVariable Long id){
-        tasks.removeIf(task -> task.getId().equals(id));
+        taskRepository.deleteById(id);
         return "Task #" + id + " has been deleted successfully!";
     }
 }

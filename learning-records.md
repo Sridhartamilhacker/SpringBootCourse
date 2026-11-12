@@ -38,4 +38,21 @@
 - **Artifacts Generated:**
   - Local Note: `notes/03-crud-api.md`
   - Notion Note: Published to `https://app.notion.com/p/4163bf92ecc881549b4fc5299ce7d2e8?pvs=204` under "🌱 Spring Boot API Lab"
-- **Next Mission:** Step 4: Making Data Permanent (Spring Data JPA & H2 Database).
+### Session 4 — 2026-11-12: Spring Data JPA & H2 SQL Database
+- **Milestone 4 Completed:** Step 4 — Making Data Permanent (Spring Data JPA & H2 Database).
+- **Hands-On Work:**
+  - Added `spring-boot-starter-data-jpa` and `h2` database dependencies.
+  - Configured `application.properties` (`spring.h2.console.enabled=true`, `spring.jpa.show-sql=true`).
+  - Added `@Entity`, `@Id`, `@GeneratedValue(strategy = GenerationType.IDENTITY)` to `Task.java`.
+  - Created `TaskRepository extends JpaRepository<Task, Long>`.
+  - Refactored `TaskController` to inject and use `TaskRepository` for persistence.
+  - Verified live SQL lifecycle:
+    - Empty initial table: `GET /tasks` -> `[]`.
+    - Inserted 2 tasks via `POST`: Hibernate generated `insert into task...`.
+    - Retrieved all: `GET /tasks` -> returned tasks with auto-incremented IDs 1 and 2.
+    - Updated task 1: `PUT /tasks/1` -> Hibernate executed `update task...`.
+    - Deleted task 2: `DELETE /tasks/2` -> Hibernate executed `delete from task...`.
+- **Artifacts Generated:**
+  - Local Note: `notes/04-spring-data-jpa.md`
+  - Notion Note: Published to `https://app.notion.com/p/4163bf92ecc8815884d0ef4ef445495f?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Step 5: Friendly Error Messages & Status Codes (`ResponseEntity`, 404 Not Found, 201 Created).

@@ -20,7 +20,7 @@
   - *What we do:* Build a complete system where you can **C**reate, **R**ead, **U**pdate, and **D**elete items using JSON.
   - *Feynman concept:* What is JSON, what are HTTP methods (`GET`, `POST`, `PUT`, `DELETE`), and how does `@RequestBody` turn JSON text into Java objects?
 
-- [ ] **Step 4: Making Data Permanent (Spring Data JPA with In-Memory H2 DB)**
+- [x] **Step 4: Making Data Permanent (Spring Data JPA with In-Memory H2 DB)**
   - *What we do:* Connect our app to a database so data doesn't disappear when the server restarts.
   - *Feynman concept:* Why do we need databases, and how Spring saves data with zero SQL queries needed.
 
