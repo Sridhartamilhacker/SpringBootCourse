@@ -24,9 +24,13 @@
   - *What we do:* Connect our app to a database so data doesn't disappear when the server restarts.
   - *Feynman concept:* Why do we need databases, and how Spring saves data with zero SQL queries needed.
 
-- [ ] **Step 5: Friendly Error Messages (No Ugly Crashes)**
+- [x] **Step 5: Friendly Error Messages (No Ugly Crashes)**
   - *What we do:* If someone asks for item #999 that doesn't exist, return a polite `"Item not found"` message instead of an ugly error screen.
   - *Feynman concept:* HTTP status codes (200 OK, 404 Not Found, 400 Bad Request) explained simply.
+
+- [x] **Step 6: Input Validation & Global Error Handling (The Bouncer & Customer Service)**
+  - *What we do:* Intercept bad requests at the door with `@Valid` and `@NotBlank`, and catch errors globally with `@RestControllerAdvice`.
+  - *Feynman concept:* The bouncer rejecting invalid data before the database is touched, and customer service returning polite JSON errors instead of raw stack traces.
 
 ---
 

@@ -2,6 +2,25 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🛡️ Milestone 6: The Guardian — Input Validation & Global Error Handling Mastered!
+- **Unlocked:** 2026-11-13
+- **What You Accomplished:**
+  - Added `spring-boot-starter-validation` to `pom.xml`.
+  - Enforced business rules with `@NotBlank` on domain models.
+  - Placed the `@Valid` bouncer at controller entry points (`@RequestBody`).
+  - Created a centralized `@RestControllerAdvice` Customer Service Desk.
+  - Eliminated messy 50-line internal Java stack traces from client responses.
+  - Delivered clean, production-grade JSON error maps: `{"title": "Title must not be empty or blank"}` with `400 Bad Request`.
+
+### 🚦 Milestone 5: The Diplomat — HTTP Status Codes & REST Headers Mastered!
+- **Unlocked:** 2026-11-13
+- **What You Accomplished:**
+  - Upgraded raw controller return types to `ResponseEntity<T>`.
+  - Replaced misleading `200 OK` on missing IDs with standard `404 Not Found`.
+  - Implemented gold-standard REST `201 Created` with dynamic `Location` headers via `ServletUriComponentsBuilder`.
+  - Mastered `204 No Content` for clean, payload-free deletions.
+  - Verified end-to-end HTTP response status codes and headers live with `curl -i`.
+
 ### 🗄️ Milestone 4: The Data Architect — Spring Data JPA & SQL Database Mastered!
 - **Unlocked:** 2026-11-12
 - **What You Accomplished:**

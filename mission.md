@@ -1,16 +1,26 @@
-# Current Mission: Step 5 — Friendly Error Messages & HTTP Status Codes!
+# Current Mission: Part 2 — Deep Dive 1: How Auto-Configuration Works!
 
-**Active Mission:** Communicating Like a Professional Web API using HTTP Status Codes  
+**Active Mission:** Peeking Behind the Magic Curtain (`@EnableAutoConfiguration` & Conditional Annotations)  
 **Learning Style:** The Feynman Technique  
-**Goal:** Currently, when an item doesn't exist, our API returns an empty `null` with a `200 OK` (which is misleading!). We will learn how to send real HTTP status codes:
-1. `200 OK` — Success!
-2. `201 Created` — A brand new item was successfully created!
-3. `404 Not Found` — The requested item does not exist!
-4. `400 Bad Request` — The user sent invalid data!
+
+### Goal:
+So far, you added `spring-boot-starter-web`, `spring-boot-starter-data-jpa`, `h2`, and `spring-boot-starter-validation`.
+Magically:
+- An Apache Tomcat web server started up.
+- Jackson started converting JSON back and forth.
+- Hibernate connected to an in-memory H2 database and created tables.
+- Hibernate Validator started validating fields.
+
+**How did all that happen with ZERO configuration files?**
+In this deep dive, we will uncover:
+1. **The "Smart Factory" Analogy:** How Spring Boot uses conditional assembly lines.
+2. **`@EnableAutoConfiguration`:** What it does when `@SpringBootApplication` runs.
+3. **The Sherlock Holmes of Spring:** Conditional annotations (`@ConditionalOnClass`, `@ConditionalOnMissingBean`, `@ConditionalOnProperty`).
+4. **Seeing the Auto-Configuration Report Live:** Run the app with `--debug` and read Spring's internal decision log!
 
 ---
 ### Checklist
-- [ ] Understand HTTP Status Codes using the "Traffic Light" analogy
-- [ ] Learn `ResponseEntity<T>` (the envelope Spring uses to set status codes and headers)
-- [ ] Update `TaskController` to return `201 Created` on `POST` and `404 Not Found` when a task ID is missing
-- [ ] Test with valid and invalid IDs to see real HTTP status codes live!
+- [ ] Understand the "Smart Factory" analogy for Auto-Configuration
+- [ ] Inspect `@SpringBootApplication` and see `@EnableAutoConfiguration` inside it
+- [ ] Explore `@ConditionalOnClass` and `@ConditionalOnMissingBean`
+- [ ] Run the app with `--debug` to read the live Auto-Configuration Report!

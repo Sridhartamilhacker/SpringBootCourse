@@ -1,8 +1,11 @@
 package com.example.taskmanager;
 
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -19,26 +22,38 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public Task getTaskById(@PathVariable Long id){
-        return taskRepository.findById(id).orElse(null);
+    public ResponseEntity<Task> getTaskById(@PathVariable Long id){
+
+        return taskRepository.findById(id).map(
+                ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Task creatTask(@RequestBody Task newTask){
-        return taskRepository.save(newTask);
+    public ResponseEntity<Task> creatTask(@Valid @RequestBody Task newTask){
+        Task savedTask = taskRepository.save(newTask);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedTask.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).body(savedTask);
     }
 
     @PutMapping("/{id}")
-    public Task updateTask(@PathVariable Long id, @RequestBody Task updated){
+    public ResponseEntity<Task> updateTask(@PathVariable Long id, @Valid @RequestBody Task updated){
         return taskRepository.findById(id).map(task -> {
             task.setTitle(updated.getTitle());
             task.setCompleted(updated.isCompleted());
-            return taskRepository.save(task);
-        }).orElse(null);
+            return ResponseEntity.ok(taskRepository.save(task));
+        }).orElse(ResponseEntity.notFound().build());
     }
     @DeleteMapping("/{id}")
-    public String deleteTask(@PathVariable Long id){
+    public ResponseEntity<Void> deleteTask( @PathVariable Long id){
+        if(!taskRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
         taskRepository.deleteById(id);
-        return "Task #" + id + " has been deleted successfully!";
+        return ResponseEntity.noContent().build();
     }
 }

@@ -7,11 +7,12 @@
 ## 🧭 The Road to Mastery
 
 ### 🌟 Part 1: The Practical Playground (Beginner Friendly)
-- [ ] **Step 1: Hello Spring Boot — Your First Running Web API** *(Current Mission)*
-- [ ] **Step 2: Passing Data — How the Web Talks to Your Code**
-- [ ] **Step 3: Building a Real In-Memory CRUD API**
-- [ ] **Step 4: Making Data Permanent (Spring Data JPA & H2 Database)**
-- [ ] **Step 5: Friendly Error Messages & Status Codes**
+- [x] **Step 1: Hello Spring Boot — Your First Running Web API**
+- [x] **Step 2: Passing Data — How the Web Talks to Your Code**
+- [x] **Step 3: Building a Real In-Memory CRUD API**
+- [x] **Step 4: Making Data Permanent (Spring Data JPA & H2 Database)**
+- [x] **Step 5: Friendly Error Messages & Status Codes**
+- [x] **Step 6: Input Validation & Global Error Handling** *(Completed!)*
 
 ### 🔬 Part 2: Looking Under the Hood (Advanced Internals)
 - Deep Dive into Auto-Configuration, `DispatcherServlet`, Transactions, and Production Actuator.

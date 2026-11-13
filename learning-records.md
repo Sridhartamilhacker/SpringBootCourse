@@ -56,3 +56,38 @@
   - Local Note: `notes/04-spring-data-jpa.md`
   - Notion Note: Published to `https://app.notion.com/p/4163bf92ecc8815884d0ef4ef445495f?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Step 5: Friendly Error Messages & Status Codes (`ResponseEntity`, 404 Not Found, 201 Created).
+### Session 5 — 2026-11-13: HTTP Status Codes & REST Headers (ResponseEntity)
+- **Milestone 5 Completed:** Step 5 — Friendly Error Messages & Status Codes (`ResponseEntity`).
+- **Hands-On Work:**
+  - Upgraded `TaskController` endpoints to return `ResponseEntity<T>`.
+  - Replaced `orElse(null)` with `ResponseEntity.notFound().build()` on `GET /{id}` and `PUT /{id}`.
+  - Implemented `ServletUriComponentsBuilder` in `POST` to return `201 Created` with standard `Location` header.
+  - Implemented `204 No Content` on successful `DELETE /{id}` with `existsById` validation returning `404 Not Found` if missing.
+  - Verified live via `curl -i`:
+    - `GET /tasks/999` -> `HTTP/1.1 404 Not Found`.
+    - `POST /tasks` -> `HTTP/1.1 201 Created` with `Location: http://localhost:8080/tasks/1`.
+    - `GET /tasks/1` -> `HTTP/1.1 200 OK`.
+    - `PUT /tasks/1` -> `HTTP/1.1 200 OK`.
+    - `PUT /tasks/999` -> `HTTP/1.1 404 Not Found`.
+    - `DELETE /tasks/1` -> `HTTP/1.1 204 No Content`.
+    - `DELETE /tasks/1` (repeat) -> `HTTP/1.1 404 Not Found`.
+- **Artifacts Generated:**
+  - Local Note: `notes/05-status-codes-and-errors.md`
+  - Notion Note: Published to `https://app.notion.com/p/4173bf92ecc88116aa09d5b9c9f564c7?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Input Validation (`@Valid`, Bean Validation) & Centralized Exception Handling (`@ControllerAdvice`) OR Deep Dive 1: How Auto-Configuration Works.
+### Session 6 — 2026-11-13: Input Validation & Global Error Handling
+- **Milestone 6 Completed:** Step 6 — Input Validation & Global Error Handling (`@Valid` & `@RestControllerAdvice`).
+- **Hands-On Work:**
+  - Added `spring-boot-starter-validation` dependency to `pom.xml`.
+  - Added `@NotBlank(message = "Title must not be empty or blank")` to `Task.java`.
+  - Added `@Valid` to `@RequestBody` on `createTask` and `updateTask` in `TaskController`.
+  - Created `GlobalExceptionHandler.java` using `@RestControllerAdvice` and `@ExceptionHandler(MethodArgumentNotValidException.class)`.
+  - Extracted field errors into a clean, compact `Map<String, String>` returned with `400 Bad Request`.
+  - Verified live via `curl -i`:
+    - `POST /tasks` with `{"title": ""}` -> `HTTP/1.1 400 Bad Request` + `{"title":"Title must not be empty or blank"}`.
+    - `POST /tasks` with valid title -> `HTTP/1.1 201 Created`.
+    - `PUT /tasks/1` with `{"title": ""}` -> `HTTP/1.1 400 Bad Request`.
+- **Artifacts Generated:**
+  - Local Note: `notes/06-validation-and-global-exception-handling.md`
+  - Notion Note: Published to `https://app.notion.com/p/4173bf92ecc881b29f69cfc8aeb0e41b?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Part 2: Looking Under the Hood — Deep Dive 1: How Auto-Configuration Works.
