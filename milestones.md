@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🔀 Milestone 8: The Traffic Controller — DispatcherServlet Mastered!
+- **Unlocked:** 2026-11-14
+- **What You Accomplished:**
+  - Grasped the Front Controller architectural pattern in Spring MVC.
+  - Traced the complete lifecycle of an HTTP request through `DispatcherServlet`.
+  - Discovered `RequestMappingHandlerMapping` (the URL lookup directory).
+  - Learned how `HandlerAdapter` binds arguments (`@PathVariable`, `@RequestBody`) and invokes methods.
+  - Observed Jackson `HttpMessageConverter` serialize and deserialize JSON live in terminal DEBUG logs.
+
 ### 🔬 Milestone 7: The Mechanic — Auto-Configuration Internals Mastered!
 - **Unlocked:** 2026-11-14
 - **What You Accomplished:**

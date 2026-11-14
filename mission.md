@@ -1,22 +1,23 @@
-# Current Mission: Part 2 — Deep Dive 2: The Heart of Spring Web (`DispatcherServlet`)!
+# Current Mission: Part 2 — Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`)!
 
-**Active Mission:** The Traffic Controller of the Web (`DispatcherServlet`, `HandlerMapping`, `HandlerAdapter`)  
+**Active Mission:** The "All-or-Nothing" Safety Net (`@Transactional` & Spring Dynamic Proxies)  
 **Learning Style:** The Feynman Technique  
 
 ### Goal:
-When you run `curl http://localhost:8080/tasks/1`, how does Apache Tomcat know to route that specific URL to `public ResponseEntity<Task> getTaskById(@PathVariable Long id)` in `TaskController.java`?
-We will learn:
-1. **The "Grand Central Station" Analogy:** The DispatcherServlet as the chief station master.
-2. **The 3 Key Actors:**
-   - `DispatcherServlet` (The Front Controller)
-   - `HandlerMapping` (The GPS Map: which URL points to which method)
-   - `HandlerAdapter` (The Universal Plug: invokes your method and passes the arguments)
-   - `HttpMessageConverter` (The Translator: Jackson turning JSON to Java and back)
-3. **Trace a Live Request:** Step through the execution path from HTTP socket to Java return value.
+Imagine transferring $100 from Account A to Account B:
+1. Deduct $100 from Account A.
+2. *(Server crashes / database error!)*
+3. Add $100 to Account B.
+If step 2 fails, Account A lost $100 and Account B never got it! The money vanished into thin air!
+In this deep dive, we will learn:
+1. **The Feynman Analogy:** The "Bank Teller / Atomic Undo" Contract (ACID).
+2. **What `@Transactional` actually does:** `BEGIN TRANSACTION`, `COMMIT`, and `ROLLBACK`.
+3. **The "Stunt Double" (Spring Dynamic Proxy):** How Spring wraps your classes in a proxy to manage transactions without polluting your business code.
+4. **Hands-On Test:** Trigger a simulated crash and verify that partial changes are rolled back automatically!
 
 ---
 ### Checklist
-- [ ] Understand the Grand Central Station analogy
-- [ ] Trace the path of an incoming HTTP request through `DispatcherServlet`
-- [ ] Understand `HandlerMapping` and `HandlerAdapter`
-- [ ] See how `HttpMessageConverter` (Jackson) translates JSON behind the scenes
+- [ ] Understand the Bank Transfer analogy (The All-or-Nothing Rule)
+- [ ] Understand `COMMIT` vs `ROLLBACK`
+- [ ] Understand the "Stunt Double" (Spring AOP Proxy)
+- [ ] Create a transactional method and observe automatic rollback on error!

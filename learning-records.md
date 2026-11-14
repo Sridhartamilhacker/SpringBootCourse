@@ -103,3 +103,16 @@
   - Local Note: `notes/07-auto-configuration-under-the-hood.md`
   - Notion Note: Published to `https://app.notion.com/p/4183bf92ecc88193b06cc07218bee0cd?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Deep Dive 2: The Heart of Spring Web — How `DispatcherServlet` Dispatches Web Requests.
+### Session 8 — 2026-11-14: DispatcherServlet Internals (Deep Dive 2)
+- **Milestone 8 Completed:** Deep Dive 2 — The Heart of Spring Web (`DispatcherServlet`).
+- **Hands-On Work:**
+  - Explored the Front Controller design pattern and contrast with traditional Java servlets.
+  - Enabled `logging.level.org.springframework.web=DEBUG` in `application.properties`.
+  - Sent live `POST /tasks` and `GET /tasks/1` requests to trace execution path.
+  - Observed `RequestMappingHandlerMapping` identify controller methods.
+  - Observed `RequestResponseBodyMethodProcessor` and Jackson `HttpMessageConverter` serialize/deserialize JSON.
+  - Traced completion through `DispatcherServlet` back to the HTTP client.
+- **Artifacts Generated:**
+  - Local Note: `notes/08-dispatcherservlet-internals.md`
+  - Notion Note: Published to `https://app.notion.com/p/4183bf92ecc8818e8d50eba9449aefdd?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`).
