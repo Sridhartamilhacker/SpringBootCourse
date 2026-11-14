@@ -15,7 +15,11 @@
 - [x] **Step 6: Input Validation & Global Error Handling** *(Completed!)*
 
 ### 🔬 Part 2: Looking Under the Hood (Advanced Internals)
-- Deep Dive into Auto-Configuration, `DispatcherServlet`, Transactions, and Production Actuator.
+- [x] **Deep Dive 1: How Auto-Configuration Works**
+- [ ] **Deep Dive 2: How Spring Dispatches Web Requests (`DispatcherServlet`)**
+- [ ] **Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`)**
+- [ ] **Deep Dive 4: Bean Lifecycle, Scopes, and Proxies**
+- [ ] **Deep Dive 5: Production Readiness with Spring Boot Actuator**
 
 ---
 

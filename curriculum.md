@@ -37,7 +37,7 @@
 ## 🔬 Part 2: Looking Under the Hood (Advanced Internals)
 *Goal: Now that you've built applications and know how they work, we dive deep into how Spring actually works under the hood.*
 
-- [ ] **Deep Dive 1: How Auto-Configuration Works**
+- [x] **Deep Dive 1: How Auto-Configuration Works**
 - [ ] **Deep Dive 2: How Spring Dispatches Web Requests (`DispatcherServlet`)**
 - [ ] **Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`)**
 - [ ] **Deep Dive 4: Bean Lifecycle, Scopes, and Proxies**

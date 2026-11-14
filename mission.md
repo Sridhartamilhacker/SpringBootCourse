@@ -1,26 +1,22 @@
-# Current Mission: Part 2 — Deep Dive 1: How Auto-Configuration Works!
+# Current Mission: Part 2 — Deep Dive 2: The Heart of Spring Web (`DispatcherServlet`)!
 
-**Active Mission:** Peeking Behind the Magic Curtain (`@EnableAutoConfiguration` & Conditional Annotations)  
+**Active Mission:** The Traffic Controller of the Web (`DispatcherServlet`, `HandlerMapping`, `HandlerAdapter`)  
 **Learning Style:** The Feynman Technique  
 
 ### Goal:
-So far, you added `spring-boot-starter-web`, `spring-boot-starter-data-jpa`, `h2`, and `spring-boot-starter-validation`.
-Magically:
-- An Apache Tomcat web server started up.
-- Jackson started converting JSON back and forth.
-- Hibernate connected to an in-memory H2 database and created tables.
-- Hibernate Validator started validating fields.
-
-**How did all that happen with ZERO configuration files?**
-In this deep dive, we will uncover:
-1. **The "Smart Factory" Analogy:** How Spring Boot uses conditional assembly lines.
-2. **`@EnableAutoConfiguration`:** What it does when `@SpringBootApplication` runs.
-3. **The Sherlock Holmes of Spring:** Conditional annotations (`@ConditionalOnClass`, `@ConditionalOnMissingBean`, `@ConditionalOnProperty`).
-4. **Seeing the Auto-Configuration Report Live:** Run the app with `--debug` and read Spring's internal decision log!
+When you run `curl http://localhost:8080/tasks/1`, how does Apache Tomcat know to route that specific URL to `public ResponseEntity<Task> getTaskById(@PathVariable Long id)` in `TaskController.java`?
+We will learn:
+1. **The "Grand Central Station" Analogy:** The DispatcherServlet as the chief station master.
+2. **The 3 Key Actors:**
+   - `DispatcherServlet` (The Front Controller)
+   - `HandlerMapping` (The GPS Map: which URL points to which method)
+   - `HandlerAdapter` (The Universal Plug: invokes your method and passes the arguments)
+   - `HttpMessageConverter` (The Translator: Jackson turning JSON to Java and back)
+3. **Trace a Live Request:** Step through the execution path from HTTP socket to Java return value.
 
 ---
 ### Checklist
-- [ ] Understand the "Smart Factory" analogy for Auto-Configuration
-- [ ] Inspect `@SpringBootApplication` and see `@EnableAutoConfiguration` inside it
-- [ ] Explore `@ConditionalOnClass` and `@ConditionalOnMissingBean`
-- [ ] Run the app with `--debug` to read the live Auto-Configuration Report!
+- [ ] Understand the Grand Central Station analogy
+- [ ] Trace the path of an incoming HTTP request through `DispatcherServlet`
+- [ ] Understand `HandlerMapping` and `HandlerAdapter`
+- [ ] See how `HttpMessageConverter` (Jackson) translates JSON behind the scenes

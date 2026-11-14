@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🔬 Milestone 7: The Mechanic — Auto-Configuration Internals Mastered!
+- **Unlocked:** 2026-11-14
+- **What You Accomplished:**
+  - Deconstructed `@SpringBootApplication` into its 3 core components: `@SpringBootConfiguration`, `@ComponentScan`, and `@EnableAutoConfiguration`.
+  - Mastered the conditional evaluation engine (`@ConditionalOnClass`, `@ConditionalOnMissingBean`, `@ConditionalOnProperty`).
+  - Enabled and interpreted the live `CONDITIONS EVALUATION REPORT` with `debug=true`.
+  - Understood the difference between Positive Matches (activated subsystems) and Negative Matches (skipped libraries).
+  - Grasped Spring's "Convention over Configuration" philosophy: sensible defaults that gracefully yield to custom user beans.
+
 ### 🛡️ Milestone 6: The Guardian — Input Validation & Global Error Handling Mastered!
 - **Unlocked:** 2026-11-13
 - **What You Accomplished:**

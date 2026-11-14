@@ -91,3 +91,15 @@
   - Local Note: `notes/06-validation-and-global-exception-handling.md`
   - Notion Note: Published to `https://app.notion.com/p/4173bf92ecc881b29f69cfc8aeb0e41b?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Part 2: Looking Under the Hood — Deep Dive 1: How Auto-Configuration Works.
+### Session 7 — 2026-11-14: Auto-Configuration Internals (Deep Dive 1)
+- **Milestone 7 Completed:** Deep Dive 1 — How Auto-Configuration Works Under the Hood.
+- **Hands-On Work:**
+  - Explored the internals of `@SpringBootApplication` and decomposed it into `@SpringBootConfiguration`, `@ComponentScan`, and `@EnableAutoConfiguration`.
+  - Added `debug=true` in `application.properties` to produce the internal `CONDITIONS EVALUATION REPORT`.
+  - Traced positive matches (`DispatcherServletAutoConfiguration`, `DataSourceAutoConfiguration`, `JacksonAutoConfiguration`, `ValidationAutoConfiguration`) and negative matches (`KafkaAutoConfiguration`, `MongoDataAutoConfiguration`).
+  - Mastered the conditional annotations engine (`@ConditionalOnClass`, `@ConditionalOnMissingBean`, `@ConditionalOnProperty`).
+  - Solved the Feynman inquiry on dependency addition and automatic bean registration.
+- **Artifacts Generated:**
+  - Local Note: `notes/07-auto-configuration-under-the-hood.md`
+  - Notion Note: Published to `https://app.notion.com/p/4183bf92ecc88193b06cc07218bee0cd?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Deep Dive 2: The Heart of Spring Web — How `DispatcherServlet` Dispatches Web Requests.
