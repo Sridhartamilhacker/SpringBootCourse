@@ -1,23 +1,23 @@
-# Current Mission: Part 2 — Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`)!
+# Current Mission: Part 2 — Deep Dive 4: Bean Lifecycle, Scopes, and Proxies!
 
-**Active Mission:** The "All-or-Nothing" Safety Net (`@Transactional` & Spring Dynamic Proxies)  
+**Active Mission:** The Lifecycle of a Spring Bean (`@PostConstruct`, `@PreDestroy`, and Scopes)  
 **Learning Style:** The Feynman Technique  
 
 ### Goal:
-Imagine transferring $100 from Account A to Account B:
-1. Deduct $100 from Account A.
-2. *(Server crashes / database error!)*
-3. Add $100 to Account B.
-If step 2 fails, Account A lost $100 and Account B never got it! The money vanished into thin air!
+Have you ever wondered:
+- When you annotate a class with `@Service` or `@Component`, who creates it, and when?
+- If 100 users visit your website at the same second, do they share 1 single Service object or does Spring create 100 separate objects?
+- How does Spring run custom setup code right after creating an object, and cleanup code right before the server shuts down?
+
 In this deep dive, we will learn:
-1. **The Feynman Analogy:** The "Bank Teller / Atomic Undo" Contract (ACID).
-2. **What `@Transactional` actually does:** `BEGIN TRANSACTION`, `COMMIT`, and `ROLLBACK`.
-3. **The "Stunt Double" (Spring Dynamic Proxy):** How Spring wraps your classes in a proxy to manage transactions without polluting your business code.
-4. **Hands-On Test:** Trigger a simulated crash and verify that partial changes are rolled back automatically!
+1. **The Feynman Analogy:** The Factory Assembly Line & The Hotel Room (Singleton vs Prototype).
+2. **Bean Lifecycle Phases:** Instantiation -> Dependency Injection -> `@PostConstruct` -> Active Service -> `@PreDestroy` on shutdown.
+3. **Bean Scopes:** Singleton (default, 1 instance per app) vs Prototype (new instance every time).
+4. **Hands-On Verification:** Log lifecycle hook events in the console as Spring starts up and gracefully shuts down!
 
 ---
 ### Checklist
-- [ ] Understand the Bank Transfer analogy (The All-or-Nothing Rule)
-- [ ] Understand `COMMIT` vs `ROLLBACK`
-- [ ] Understand the "Stunt Double" (Spring AOP Proxy)
-- [ ] Create a transactional method and observe automatic rollback on error!
+- [ ] Understand Bean Scopes: Singleton vs Prototype
+- [ ] Understand the Bean Lifecycle sequence (Birth, Life, Death)
+- [ ] Add `@PostConstruct` and `@PreDestroy` to a component and watch the lifecycle in terminal logs
+- [ ] Test Singleton vs Prototype identity with `System.identityHashCode()`

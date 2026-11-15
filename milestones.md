@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🛡️ Milestone 9: The Safety Net — Database Transactions & Proxies Mastered!
+- **Unlocked:** 2026-11-15
+- **What You Accomplished:**
+  - Mastered the Feynman "Bank Transfer" and All-or-Nothing ACID transaction contract.
+  - Implemented `@Transactional` on `TaskService` and exposed comparison endpoints in `TaskController`.
+  - Discovered and dissected Spring's runtime "stunt double" — the CGLIB Dynamic AOP Proxy (`TaskService$$SpringCGLIB$$0`).
+  - Observed `TransactionInterceptor` and `TransactionAspectSupport` orchestrating `BEGIN TRANSACTION` and `ROLLBACK`.
+  - Proved live via H2 that unprotected crashes leave corrupted records while `@Transactional` completely undoes changes on error.
+
 ### 🔀 Milestone 8: The Traffic Controller — DispatcherServlet Mastered!
 - **Unlocked:** 2026-11-14
 - **What You Accomplished:**

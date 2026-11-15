@@ -12,8 +12,10 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TaskController {
     private final TaskRepository taskRepository;
-    public TaskController(TaskRepository taskRepository){
+    private final TaskService taskService;
+    public TaskController(TaskRepository taskRepository, TaskService taskService){
         this.taskRepository = taskRepository;
+        this.taskService = taskService;
 
     }
     @GetMapping
@@ -56,4 +58,17 @@ public class TaskController {
         taskRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/test-unprotected")
+    public String testUnprotected() {
+        taskService.createTaskWithoutTransaction();
+        return "Done";
+    }
+
+    @GetMapping("/test-protected")
+    public String testProtected() {
+        taskService.createTaskWithTransaction();
+        return "Done";
+    }
+
 }

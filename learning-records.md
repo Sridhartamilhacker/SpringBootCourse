@@ -116,3 +116,16 @@
   - Local Note: `notes/08-dispatcherservlet-internals.md`
   - Notion Note: Published to `https://app.notion.com/p/4183bf92ecc8818e8d50eba9449aefdd?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`).
+### Session 9 — 2026-11-15: Database Transactions & Dynamic Proxies (Deep Dive 3)
+- **Milestone 9 Completed:** Deep Dive 3 — Behind the Scenes of Database Transactions (`@Transactional`).
+- **Hands-On Work:**
+  - Explored the Feynman "Bank Transfer" and All-or-Nothing ACID transaction contract.
+  - Implemented `TaskService.java` with contrasting methods: `createTaskWithoutTransaction()` vs `@Transactional createTaskWithTransaction()`.
+  - Added test endpoints `/tasks/test-unprotected` and `/tasks/test-protected` in `TaskController.java`.
+  - Tested unprotected crash via `GET /tasks/test-unprotected`: Observed that despite runtime crash, `"Unprotected Task"` was permanently committed into H2 database.
+  - Tested protected transaction via `GET /tasks/test-protected`: Observed HTTP 500 with stack trace revealing CGLIB proxy interception (`TaskService$$SpringCGLIB$$0`, `CglibAopProxy$DynamicAdvisedInterceptor`, `TransactionInterceptor`).
+  - Verified live via `GET /tasks` that `"Protected Task"` was rolled back with zero trace in the database.
+- **Artifacts Generated:**
+  - Local Note: `notes/09-database-transactions-and-proxies.md`
+  - Notion Note: Published to `https://app.notion.com/p/4193bf92ecc88111b3e4d31c916107ea?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Deep Dive 4: Bean Lifecycle, Scopes, and Proxies (`@PostConstruct`, `@PreDestroy`, Singleton vs Prototype).
