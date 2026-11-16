@@ -2,6 +2,14 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### ☕ Milestone 10: The Master of Beans — Lifecycle Hooks & Scopes Mastered!
+- **Unlocked:** 2026-11-16
+- **What You Accomplished:**
+  - Deconstructed Bean Scopes using the "Office Coffee Machine" (Singleton) vs "Paper Cup" (Prototype) analogy.
+  - Implemented `@PostConstruct` and `@PreDestroy` lifecycle hooks and watched them execute live in terminal logs.
+  - Proved the Singleton design pattern live using `System.identityHashCode()` across concurrent web requests.
+  - Mastered the Golden Rule of Spring Singletons: why service beans must remain strictly stateless.
+
 ### 🛡️ Milestone 9: The Safety Net — Database Transactions & Proxies Mastered!
 - **Unlocked:** 2026-11-15
 - **What You Accomplished:**

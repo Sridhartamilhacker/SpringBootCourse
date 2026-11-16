@@ -1,23 +1,25 @@
-# Current Mission: Part 2 — Deep Dive 4: Bean Lifecycle, Scopes, and Proxies!
+# Current Mission: Part 2 — Deep Dive 5: Production Readiness with Spring Boot Actuator!
 
-**Active Mission:** The Lifecycle of a Spring Bean (`@PostConstruct`, `@PreDestroy`, and Scopes)  
+**Active Mission:** The Doctor's Stethoscope for Production Apps (`spring-boot-starter-actuator`)  
 **Learning Style:** The Feynman Technique  
 
 ### Goal:
-Have you ever wondered:
-- When you annotate a class with `@Service` or `@Component`, who creates it, and when?
-- If 100 users visit your website at the same second, do they share 1 single Service object or does Spring create 100 separate objects?
-- How does Spring run custom setup code right after creating an object, and cleanup code right before the server shuts down?
+When your application is deployed to production (AWS, Kubernetes, Docker):
+- How do you know if the app is still healthy or crashed?
+- How does Kubernetes know whether to restart your container?
+- How do you inspect live CPU usage, JVM heap memory, and active threads without restarting the app?
 
 In this deep dive, we will learn:
-1. **The Feynman Analogy:** The Factory Assembly Line & The Hotel Room (Singleton vs Prototype).
-2. **Bean Lifecycle Phases:** Instantiation -> Dependency Injection -> `@PostConstruct` -> Active Service -> `@PreDestroy` on shutdown.
-3. **Bean Scopes:** Singleton (default, 1 instance per app) vs Prototype (new instance every time).
-4. **Hands-On Verification:** Log lifecycle hook events in the console as Spring starts up and gracefully shuts down!
+1. **The Feynman Analogy:** The Airplane Cockpit / Doctor's Stethoscope.
+2. **Add `spring-boot-starter-actuator`:** Unlock production-ready endpoints.
+3. **The Health Endpoint (`/actuator/health`):** How Kubernetes checks "Liveness" and "Readiness".
+4. **Metrics and Info (`/actuator/metrics`):** Inspecting live memory, database connection pool stats, and request counters.
+5. **Security Best Practice:** Why actuator endpoints must never be blindly exposed to the public internet!
 
 ---
 ### Checklist
-- [ ] Understand Bean Scopes: Singleton vs Prototype
-- [ ] Understand the Bean Lifecycle sequence (Birth, Life, Death)
-- [ ] Add `@PostConstruct` and `@PreDestroy` to a component and watch the lifecycle in terminal logs
-- [ ] Test Singleton vs Prototype identity with `System.identityHashCode()`
+- [ ] Understand the Airplane Cockpit / Doctor's Stethoscope analogy
+- [ ] Add `spring-boot-starter-actuator` to `pom.xml`
+- [ ] Inspect `/actuator/health` live in terminal
+- [ ] Expose management endpoints in `application.properties` (`management.endpoints.web.exposure.include=*`)
+- [ ] Inspect live JVM heap memory and database metrics via `/actuator/metrics`!

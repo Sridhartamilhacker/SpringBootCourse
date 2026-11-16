@@ -129,3 +129,16 @@
   - Local Note: `notes/09-database-transactions-and-proxies.md`
   - Notion Note: Published to `https://app.notion.com/p/4193bf92ecc88111b3e4d31c916107ea?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Deep Dive 4: Bean Lifecycle, Scopes, and Proxies (`@PostConstruct`, `@PreDestroy`, Singleton vs Prototype).
+### Session 10 — 2026-11-16: Bean Lifecycle & Scopes (Deep Dive 4)
+- **Milestone 10 Completed:** Deep Dive 4 — Bean Lifecycle, Scopes, and Identity.
+- **Hands-On Work:**
+  - Deconstructed Bean Scopes using the Office Coffee Machine (Singleton) vs Paper Cup (Prototype) analogy.
+  - Implemented `@PostConstruct` and `@PreDestroy` lifecycle hooks in `TaskService.java`.
+  - Observed console logs confirming constructor execution followed immediately by `@PostConstruct`.
+  - Added `/tasks/scope-check` in `TaskController.java` returning `System.identityHashCode(taskService)`.
+  - Verified live via multiple HTTP requests that the memory identity remains identical across all calls.
+  - Mastered why Spring Beans must remain strictly stateless.
+- **Artifacts Generated:**
+  - Local Note: `notes/10-bean-lifecycle-and-scopes.md`
+  - Notion Note: Published to `https://app.notion.com/p/41a3bf92ecc881b8948de7fbdb19275d?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** Deep Dive 5: Production Readiness with Spring Boot Actuator (`/actuator/health`, metrics, monitoring).

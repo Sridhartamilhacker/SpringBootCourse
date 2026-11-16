@@ -70,5 +70,9 @@ public class TaskController {
         taskService.createTaskWithTransaction();
         return "Done";
     }
+    @GetMapping("/scope-test")
+    public String checkScope(){
+        return "TaskService instance memory ID: " + System.identityHashCode(taskService);
+    }
 
 }
