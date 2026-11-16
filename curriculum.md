@@ -41,4 +41,4 @@
 - [x] **Deep Dive 2: How Spring Dispatches Web Requests (`DispatcherServlet`)**
 - [x] **Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional`)**
 - [x] **Deep Dive 4: Bean Lifecycle, Scopes, and Proxies**
-- [ ] **Deep Dive 5: Production Readiness with Spring Boot Actuator**
+- [x] **Deep Dive 5: Production Readiness with Spring Boot Actuator**

@@ -142,3 +142,16 @@
   - Local Note: `notes/10-bean-lifecycle-and-scopes.md`
   - Notion Note: Published to `https://app.notion.com/p/41a3bf92ecc881b8948de7fbdb19275d?pvs=204` under "🌱 Spring Boot API Lab"
 - **Next Mission:** Deep Dive 5: Production Readiness with Spring Boot Actuator (`/actuator/health`, metrics, monitoring).
+### Session 11 — 2026-11-16: Spring Boot Actuator (Deep Dive 5)
+- **Milestone 11 Completed:** Deep Dive 5 — Production Readiness with Spring Boot Actuator.
+- **Hands-On Work:**
+  - Added `spring-boot-starter-actuator` to `pom.xml`.
+  - Configured `management.endpoints.web.exposure.include=*` and `management.endpoint.health.show-details=always` in `application.properties`.
+  - Queried `/actuator/health` live: Verified H2 database status (`isValid()`), available disk space (135 GB), and Kubernetes liveness/readiness probes.
+  - Queried `/actuator/metrics/jvm.memory.used`: Tracked real-time JVM heap consumption (~220 MB).
+  - Queried `/actuator/metrics/http.server.requests`: Observed request volume, latency measurements, and HTTP status tag tracking.
+  - Mastered production security patterns for shielding management endpoints.
+- **Artifacts Generated:**
+  - Local Note: `notes/11-spring-boot-actuator.md`
+  - Notion Note: Published to `https://app.notion.com/p/41a3bf92ecc881128902ec2b219fa61f?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** 🎉 Core Curriculum Completed! Graduate Projects, Spring Security, or Microservices.

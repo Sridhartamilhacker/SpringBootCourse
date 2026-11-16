@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🩺 Milestone 11: The Production Pilot — Spring Boot Actuator Mastered!
+- **Unlocked:** 2026-11-16
+- **What You Accomplished:**
+  - Added `spring-boot-starter-actuator` and activated production telemetry with zero Java code.
+  - Inspected real-time `/actuator/health` revealing database (`H2`), disk space, and Kubernetes liveness/readiness probes.
+  - Monitored live JVM heap memory consumption via `/actuator/metrics/jvm.memory.used`.
+  - Tracked HTTP server request volume and latency profiles via `/actuator/metrics/http.server.requests`.
+  - Mastered production security guidelines: exposing public health probes while shielding internal operational metrics.
+
 ### ☕ Milestone 10: The Master of Beans — Lifecycle Hooks & Scopes Mastered!
 - **Unlocked:** 2026-11-16
 - **What You Accomplished:**
