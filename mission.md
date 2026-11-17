@@ -1,30 +1,16 @@
-# 🎓 Spring Boot Mastery Laboratory: Core Curriculum Completed!
+# Current Mission: ApexWallet — Phase 1: Infrastructure & Project Scaffolding
 
-**Status:** 🏆 MASTER LEVEL ACHIEVED!
-**Learning Style:** The Feynman Technique  
+**Active Mission:** Spinning up PostgreSQL & Initializing Project Structure  
+**Learning Style:** The Feynman Technique (One step at a time, Learner writes all code)  
 
----
-
-### 🌟 Part 1: The Practical Playground (All Completed)
-- [x] Step 1: Hello Spring Boot — First Running Web API
-- [x] Step 2: Passing Data — `@RequestParam` & `@PathVariable`
-- [x] Step 3: Full In-Memory CRUD REST API with JSON
-- [x] Step 4: Making Data Permanent (Spring Data JPA & H2 SQL Database)
-- [x] Step 5: Professional HTTP Status Codes (`ResponseEntity`, 201 Created, 404 Not Found, 204 No Content)
-- [x] Step 6: Input Validation & Global Error Handling (`@Valid`, `@NotBlank`, `@RestControllerAdvice`)
+### Current Step: Step 1.1 — Spin up Containerized PostgreSQL 16
+Before we write any Spring Boot code, we need a real database running.
+We will launch a dedicated, isolated PostgreSQL 16 container using **Podman** (which is rootless, fast, and OCI-compliant).
 
 ---
-
-### 🔬 Part 2: Looking Under the Hood (All Completed)
-- [x] Deep Dive 1: How Auto-Configuration Works (`@ConditionalOnClass`, `@ConditionalOnMissingBean`)
-- [x] Deep Dive 2: How Spring Dispatches Requests (`DispatcherServlet`, `HandlerMapping`, `HandlerAdapter`)
-- [x] Deep Dive 3: Behind the Scenes of Database Transactions (`@Transactional` & CGLIB Dynamic Proxies)
-- [x] Deep Dive 4: Bean Lifecycle & Scopes (`@PostConstruct`, `@PreDestroy`, Singleton vs Prototype)
-- [x] Deep Dive 5: Production Readiness with Spring Boot Actuator (`/actuator/health`, `/actuator/metrics`)
-
----
-
-### 🚀 Next Level Capstone Tracks:
-1. **Track 1: Spring Security & JWT:** Protecting endpoints with authentication, login tokens, and role-based permissions.
-2. **Track 2: Containerization & Cloud Deployment:** Packaging our Spring Boot app into a Docker container and deploying it with a real PostgreSQL database.
-3. **Track 3: Full-Stack Project:** Connecting our Spring Boot REST API to a modern frontend (React / Next.js / Vue).
+### Phase 1 Checklist
+- [x] **Step 1.1:** Spin up PostgreSQL 16 container via Podman (Verified: container `apex-postgres` is UP!)
+- [x] **Step 1.2:** Verify database connectivity and credentials using `psql` (Verified: `apex_wallet` database active!)
+- [ ] **Step 1.3:** Create project directory `exercises/03-digital-wallet-api`
+- [ ] **Step 1.4:** Configure enterprise `pom.xml` with dependencies (Postgres, Flyway, Validation, OpenAPI, Actuator)
+- [ ] **Step 1.5:** Create `application.yml` and test database connection on application boot!
