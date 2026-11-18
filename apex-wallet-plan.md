@@ -157,16 +157,17 @@ flowchart LR
     -e POSTGRES_PASSWORD=wallet_secret \
     postgres:16-alpine
   ```
-- [ ] Initialize project directory: `exercises/03-digital-wallet-api`
-- [ ] Configure `pom.xml` with enterprise dependencies:
-  - `spring-boot-starter-web`
-  - `spring-boot-starter-data-jpa`
-  - `spring-boot-starter-validation`
-  - `spring-boot-starter-actuator`
-  - `postgresql` runtime driver
-  - `flyway-core` + `flyway-database-postgresql`
-  - `springdoc-openapi-starter-webmvc-ui`
-- [ ] Configure `application.yml` with connection pool, Flyway, and JPA settings.
+- [x] Initialize project directory using Gradle CLI: `exercises/03-digital-wallet-api`
+- [x] Configure `build.gradle` with Spring Boot 3 plugin & enterprise dependencies:
+  - `org.springframework.boot:spring-boot-starter-web`
+  - `org.springframework.boot:spring-boot-starter-data-jpa`
+  - `org.springframework.boot:spring-boot-starter-validation`
+  - `org.springframework.boot:spring-boot-starter-actuator`
+  - `org.postgresql:postgresql` (runtimeOnly)
+  - `org.flywaydb:flyway-core` + `org.flywaydb:flyway-database-postgresql`
+  - `org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5`
+- [x] Configure `application.yml` with connection pool, Flyway, and JPA settings.
+- [x] Boot `DigitalWalletApplication` and verify live PostgreSQL connection + Swagger UI initialization!
 
 ### Phase 2: Database Schema & Versioned Flyway Migrations
 - [ ] Create `V1__create_wallet_and_ledger_tables.sql`:
@@ -207,8 +208,8 @@ flowchart LR
 
 ### Automated Tests
 ```bash
-# Verify Maven build & Flyway migrations against live Postgres
-mvn -f exercises/03-digital-wallet-api/pom.xml test
+# Verify Gradle build & test execution
+./gradlew test
 ```
 
 ### Manual Verification
