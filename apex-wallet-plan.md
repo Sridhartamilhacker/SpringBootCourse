@@ -170,10 +170,10 @@ flowchart LR
 - [x] Boot `DigitalWalletApplication` and verify live PostgreSQL connection + Swagger UI initialization!
 
 ### Phase 2: Database Schema & Versioned Flyway Migrations
-- [ ] Create `V1__create_wallet_and_ledger_tables.sql`:
+- [x] Create `V1__create_wallet_and_ledger_tables.sql`:
   - `users`, `wallets`, `transactions`, `ledger_entries`, `idempotency_records`
   - Add constraints: `CHECK (balance >= 0.0000)` on user wallets.
-- [ ] Create `V2__seed_system_treasury.sql`:
+- [x] Create `V2__seed_system_treasury.sql`:
   - Seed internal `SYSTEM_TREASURY_WALLET`.
 
 ### Phase 3: Domain Entities & Repositories

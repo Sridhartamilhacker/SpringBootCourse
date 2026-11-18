@@ -154,4 +154,13 @@
 - **Artifacts Generated:**
   - Local Note: `notes/11-spring-boot-actuator.md`
   - Notion Note: Published to `https://app.notion.com/p/41a3bf92ecc881128902ec2b219fa61f?pvs=204` under "🌱 Spring Boot API Lab"
-- **Next Mission:** 🎉 Core Curriculum Completed! Graduate Projects, Spring Security, or Microservices.
+- **Next Mission:** Phase 1 & 2 of ApexWallet: Containerized PostgreSQL & Versioned Flyway Migrations.
+### Session 12 — 2026-11-18: ApexWallet Phase 2: Database Schema & Flyway Migrations
+- **Milestone 12 Completed:** Production Relational Schema & Flyway Versioned Migrations.
+- **Hands-On Work:**
+  - Shifted from beginner Feynman analogies to Staff-Engineer Production Method.
+  - Authored `V1__create_wallet_and_ledger_tables.sql` establishing tables for `users`, `wallets`, `transactions`, `ledger_entries`, and `idempotency_records`.
+  - Authored `V2__seed_system_treasury.sql` initializing the root System Treasury account with a $1B reserve.
+  - Diagnosed Spring Boot 4 modular auto-configuration behavior: resolved missing `spring-boot-starter-flyway` dependency.
+  - Enabled debug logging for `org.flywaydb` and verified successful live migrations into containerized PostgreSQL 16.
+- **Next Mission:** Phase 3: Domain Entities & JPA Repositories with Hibernate `ddl-auto: validate`.

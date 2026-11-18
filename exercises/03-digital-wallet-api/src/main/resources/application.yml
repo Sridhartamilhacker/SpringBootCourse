@@ -1,6 +1,12 @@
 server:
   port: 8080
 
+logging:
+  level:
+    org.flywaydb: DEBUG
+    org.springframework.jdbc: DEBUG
+
+
 spring:
   application:
     name: digital-wallet-api

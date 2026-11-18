@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🗄️ Milestone 12: The Database Architect — Flyway Migrations & Containerized PostgreSQL
+- **Unlocked:** 2026-11-18
+- **What You Accomplished:**
+  - Designed production-grade DDL schema with audit trails, optimistic locking, and financial precision (`NUMERIC(19,4)`).
+  - Authored versioned SQL migration scripts `V1__create_wallet_and_ledger_tables.sql` and `V2__seed_system_treasury.sql`.
+  - Diagnosed Spring Boot modular auto-configuration mechanics and configured `spring-boot-starter-flyway`.
+  - Applied migrations live against a containerized PostgreSQL 16 database with `ddl-auto: validate`.
+  - Enforced zero-loss double-entry accounting constraints directly at the database engine level.
+
 ### 🩺 Milestone 11: The Production Pilot — Spring Boot Actuator Mastered!
 - **Unlocked:** 2026-11-16
 - **What You Accomplished:**

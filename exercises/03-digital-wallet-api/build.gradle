@@ -22,6 +22,9 @@ java {
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://download.red-gate.com/maven/release"
+    }
 }
 
 dependencies {
@@ -35,8 +38,9 @@ dependencies {
         runtimeOnly 'org.postgresql:postgresql'
 
         // 4. Flyway Database Migrations
-        implementation 'org.flywaydb:flyway-core'
+        implementation 'org.springframework.boot:spring-boot-starter-flyway'
         implementation 'org.flywaydb:flyway-database-postgresql'
+
 
         // 5. Bean Validation (@Valid, @Positive, etc.)
         implementation 'org.springframework.boot:spring-boot-starter-validation'
