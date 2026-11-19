@@ -24,4 +24,6 @@ public class Transaction {
     private String referenceNote;
     @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt = OffsetDateTime.now();
+
+    public Transaction(){}
 }
