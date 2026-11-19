@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🛡️ Milestone 13: The Entity Engineer — JPA Domain Models & Strict Schema Validation
+- **Unlocked:** 2026-11-19
+- **What You Accomplished:**
+  - Designed and authored 5 production JPA entities (`User`, `Wallet`, `Transaction`, `LedgerEntry`, `IdempotencyRecord`) and 4 domain enums.
+  - Implemented `@Version` optimistic locking concurrency control directly into `Wallet`.
+  - Authored 5 Spring Data JPA repositories with query derivation and relationship property traversal (`findByUser_Id`).
+  - Mastered Spring Data method naming rules (`existsBy...` vs custom verbs) and avoided low-level package import collisions.
+  - Satisfied Hibernate's strict `ddl-auto: validate` against live containerized PostgreSQL with zero schema divergence.
+
 ### 🗄️ Milestone 12: The Database Architect — Flyway Migrations & Containerized PostgreSQL
 - **Unlocked:** 2026-11-18
 - **What You Accomplished:**

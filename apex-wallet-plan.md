@@ -177,8 +177,8 @@ flowchart LR
   - Seed internal `SYSTEM_TREASURY_WALLET`.
 
 ### Phase 3: Domain Entities & Repositories
-- [ ] `User`, `Wallet` (`@Version`, `WalletStatus`), `Transaction`, `LedgerEntry`, `IdempotencyRecord`
-- [ ] Repositories with custom queries (`findByWalletNumber`, `findAllByUserId`, `findAllByWalletIdOrderByCreatedAtDesc`).
+- [x] `User`, `Wallet` (`@Version`, `WalletStatus`), `Transaction`, `LedgerEntry`, `IdempotencyRecord`
+- [x] Repositories with custom queries (`findByWalletNumber`, `findAllByUserId`, `findAllByWalletIdOrderByCreatedAtDesc`).
 
 ### Phase 4: Business Logic & Double-Entry Ledger Engine
 - [ ] Account status guard (`ACTIVE`, `FROZEN`, `CLOSED`).

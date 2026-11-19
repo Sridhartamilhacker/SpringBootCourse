@@ -164,3 +164,15 @@
   - Diagnosed Spring Boot 4 modular auto-configuration behavior: resolved missing `spring-boot-starter-flyway` dependency.
   - Enabled debug logging for `org.flywaydb` and verified successful live migrations into containerized PostgreSQL 16.
 - **Next Mission:** Phase 3: Domain Entities & JPA Repositories with Hibernate `ddl-auto: validate`.
+### Session 13 — 2026-11-19: ApexWallet Phase 3: Domain Entities & JPA Repositories
+- **Milestone 13 Completed:** Domain Entity Architecture & Strict Schema Validation.
+- **Hands-On Work:**
+  - Authored 4 domain enums: `WalletStatus`, `TransactionType`, `TransactionStatus`, `EntryType`.
+  - Authored 5 JPA entities: `User`, `Wallet`, `Transaction`, `LedgerEntry`, and `IdempotencyRecord`.
+  - Configured `@Version` on `Wallet` for database-level optimistic locking concurrency guard.
+  - Resolved `columnDefinition = "TEXT"` mapping on `IdempotencyRecord.responseBody` to match PostgreSQL `TEXT`.
+  - Authored 5 Spring Data JPA repositories in `com.apex.wallet.repository`.
+  - Diagnosed and fixed package import collision (`jakarta.transaction.Transaction` vs model `Transaction`).
+  - Mastered Spring Data method naming rules (`existsByEmail` vs custom `check...` verbs) and property traversal (`findByUser_Id`).
+  - Booted application and verified 100% agreement between Java entities and live PostgreSQL schema under `ddl-auto: validate`.
+- **Next Mission:** Phase 4: Business Logic & Double-Entry Ledger Engine.
