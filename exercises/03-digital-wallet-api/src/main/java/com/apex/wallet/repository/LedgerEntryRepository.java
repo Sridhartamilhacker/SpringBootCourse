@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface LedgerEntryRepository extends JpaRepository<LedgerEntry, UUID> {
     List<LedgerEntry> findByWallet_IdOrderByCreatedAtDesc(UUID walletId);
-    List<LedgerEntry> findByTransaction_id(UUID transactionId);
+    List<LedgerEntry> findByTransaction_Id(UUID transactionId);
 }

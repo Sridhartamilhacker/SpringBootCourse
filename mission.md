@@ -1,42 +1,44 @@
-# Current Mission: ApexWallet — Phase 3: Domain Entities & JPA Repositories
+# Current Mission: ApexWallet — Phase 4: Business Logic & Double-Entry Ledger Engine
 
-**Active Mission:** Production JPA Entity Modeling & Data Access Layer  
-**Engineering Standard:** Clean Architecture, Strict Schema Validation (`ddl-auto: validate`), Optimistic Locking  
+**Active Mission:** Core Financial Engine, Atomic Transfers, & Double-Entry Bookkeeping  
+**Engineering Standard:** ACID Transactions (`@Transactional`), Mathematical Ledger Parity ($\sum Debit + \sum Credit = 0$), Concurrency Safeguards  
 
 ---
 
-### Status: Phase 1 & 2 COMPLETED! 🚀
+### Status: Phases 1, 2, & 3 COMPLETED! 🚀
 - [x] **Phase 1: Environment & Scaffolding**
   - PostgreSQL 16 container running and healthy on port 5432.
   - Gradle project configured with Spring Boot 4 / Java 27 / SpringDoc OpenAPI.
-  - HikariCP pool initialized and connected to `apex_wallet`.
 - [x] **Phase 2: Database Schema & Flyway Migrations**
-  - `V1__create_wallet_and_ledger_tables.sql` authored with double-entry constraints.
-  - `V2__seed_system_treasury.sql` authored with $1B reserve treasury account.
-  - `spring-boot-starter-flyway` added and live migration executed into PostgreSQL.
+  - `V1__create_wallet_and_ledger_tables.sql` & `V2__seed_system_treasury.sql`.
+  - Automated migrations on boot via `spring-boot-starter-flyway`.
+- [x] **Phase 3: Domain Entities & Repositories**
+  - 4 Model Enums: `WalletStatus`, `TransactionType`, `TransactionStatus`, `EntryType`.
+  - 5 JPA Entities: `User`, `Wallet` (`@Version`), `Transaction`, `LedgerEntry`, `IdempotencyRecord`.
+  - 5 Spring Data JPA Repositories with custom query methods.
+  - Verified 100% schema agreement with PostgreSQL under `ddl-auto: validate`.
 
 ---
 
-### Phase 3: Domain Entities & Repositories
-Since `ddl-auto: validate` is active, Hibernate strictly verifies that every entity, column type, precision, and constraint precisely matches the PostgreSQL tables created by Flyway. Any mismatch will halt application startup.
+### Phase 4: Business Logic & Double-Entry Ledger Engine
+This is the core financial heart of ApexWallet. In this phase, we ensure money is never created or destroyed arbitrarily, balances never go negative, and all operations are atomic and audit-compliant.
 
-### Phase 3 Checklist:
-- [ ] **Step 3.1: Enums & Shared Types**
-  - `WalletStatus` (`ACTIVE`, `FROZEN`, `CLOSED`)
-  - `TransactionType` (`DEPOSIT`, `WITHDRAWAL`, `TRANSFER`)
-  - `TransactionStatus` (`PENDING`, `SUCCESS`, `FAILED`)
-  - `EntryType` (`DEBIT`, `CREDIT`)
-- [ ] **Step 3.2: Domain Entities (`com.apex.wallet.model`)**
-  - `User`: UUID ID, unique email, full_name, created_at.
-  - `Wallet`: UUID ID, user_id, unique wallet_number, balance (`BigDecimal`), currency, status, `@Version` optimistic locking counter.
-  - `Transaction`: UUID ID, transaction_type, status, reference_note, created_at.
-  - `LedgerEntry`: UUID ID, transaction_id, wallet_id, entry_type, amount (`BigDecimal`), running_balance (`BigDecimal`), created_at.
-  - `IdempotencyRecord`: idempotency_key (`@Id`), transaction_id, response_status, response_body, created_at, expires_at.
-- [ ] **Step 3.3: Spring Data JPA Repositories (`com.apex.wallet.repository`)**
-  - `UserRepository`: `findByEmail(String email)`
-  - `WalletRepository`: `findByWalletNumber(String walletNumber)`, `findAllByUserId(UUID userId)`
-  - `TransactionRepository`: Standard CRUD
-  - `LedgerEntryRepository`: `findAllByWalletIdOrderByCreatedAtDesc(UUID walletId)`
-  - `IdempotencyRecordRepository`: `findById(String idempotencyKey)`
-- [ ] **Step 3.4: Boot & Hibernate Schema Validation**
-  - Boot the application and verify that Hibernate's `ddl-auto: validate` executes successfully against PostgreSQL with zero schema divergence errors!
+### Phase 4 Checklist:
+- [ ] **Step 4.1: Domain Exceptions**
+  - `WalletNotFoundException`, `InsufficientFundsException`, `WalletFrozenException`, `InvalidTransferException`.
+- [ ] **Step 4.2: Wallet Management Service (`WalletService`)**
+  - `createWallet(UUID userId, String currency)`: generates unique wallet number, saves wallet with zero balance.
+  - `getWalletByNumber(String walletNumber)`: returns wallet or throws exception.
+  - `updateWalletStatus(String walletNumber, WalletStatus status)`: freeze/unfreeze account.
+- [ ] **Step 4.3: The Double-Entry Ledger Transfer Service (`PaymentService`)**
+  - Atomic `@Transactional` execution:
+    1. Validation: Verify source & destination wallets exist, are `ACTIVE`, and source has sufficient balance.
+    2. Master Record: Persist master `Transaction` with status `PENDING`.
+    3. Immutable Ledger Entries:
+       - Debit Entry: source wallet balance reduced, `DEBIT` ledger entry created with `running_balance`.
+       - Credit Entry: destination wallet balance increased, `CREDIT` ledger entry created with `running_balance`.
+    4. Balance Updates: update wallet balances (protected by `@Version` optimistic locking).
+    5. Finalize: mark master `Transaction` as `SUCCESS`.
+- [ ] **Step 4.4: System Treasury Operations (Deposit & Withdrawal)**
+  - `deposit(String targetWalletNumber, BigDecimal amount)`: Debit `TREASURY_USD`, Credit `targetWalletNumber`.
+  - `withdraw(String sourceWalletNumber, BigDecimal amount)`: Debit `sourceWalletNumber`, Credit `TREASURY_USD`.
