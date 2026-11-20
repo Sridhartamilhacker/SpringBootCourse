@@ -176,3 +176,12 @@
   - Mastered Spring Data method naming rules (`existsByEmail` vs custom `check...` verbs) and property traversal (`findByUser_Id`).
   - Booted application and verified 100% agreement between Java entities and live PostgreSQL schema under `ddl-auto: validate`.
 - **Next Mission:** Phase 4: Business Logic & Double-Entry Ledger Engine.
+### Session 14 — 2026-11-20: ApexWallet Phase 4: Business Logic & Double-Entry Ledger Engine
+- **Milestone 14 Completed:** Double-Entry Ledger Engine & Financial Integrity.
+- **Hands-On Work:**
+  - Created domain-specific business exceptions (`WalletNotFoundException`, `UserNotFoundException`, `InsufficientFundsException`, `WalletInactiveException`, `InvalidTransferException`) extending unchecked `RuntimeException`.
+  - Authored `WalletService` for lifecycle operations, unique wallet number generation, and status management.
+  - Authored `PaymentService` implementing double-entry accounting with balanced paired debits and credits.
+  - Linked internal System Treasury (`TREASURY_USD`) for automated deposit and withdrawal routing.
+  - Diagnosed and resolved Spring CGLIB proxy self-invocation caveat by explicitly decorating `deposit` and `withdraw` with `@Transactional`.
+- **Next Mission:** Phase 5: 24-Hour Distributed Idempotency Engine & DTO Contracts.

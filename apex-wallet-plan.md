@@ -181,8 +181,8 @@ flowchart LR
 - [x] Repositories with custom queries (`findByWalletNumber`, `findAllByUserId`, `findAllByWalletIdOrderByCreatedAtDesc`).
 
 ### Phase 4: Business Logic & Double-Entry Ledger Engine
-- [ ] Account status guard (`ACTIVE`, `FROZEN`, `CLOSED`).
-- [ ] Atomic money transfer (`@Transactional`):
+- [x] Account status guard (`ACTIVE`, `FROZEN`, `CLOSED`).
+- [x] Atomic money transfer (`@Transactional`):
   - Debit source wallet, credit destination wallet.
   - Insert paired `LedgerEntry` records with calculated `running_balance`.
   - Save master `Transaction` record.

@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### ⚖️ Milestone 14: The Ledger Engineer — Double-Entry Accounting & Financial Integrity
+- **Unlocked:** 2026-11-20
+- **What You Accomplished:**
+  - Designed and authored custom domain exceptions with automatic `@Transactional` rollback triggers.
+  - Implemented `WalletService` with class-level read-only transactions and idiomatic `.orElseThrow()` lookups.
+  - Built the immutable double-entry ledger engine in `PaymentService` ensuring zero-sum accounting parity ($\sum Debits + \sum Credits = 0$).
+  - Avoided the Spring CGLIB proxy self-invocation trap by correctly configuring write transactions on internal delegations (`deposit`, `withdraw`).
+  - Powered atomic money movements, paired ledger entries, and audit trail generation with exact `BigDecimal` precision.
+
 ### 🛡️ Milestone 13: The Entity Engineer — JPA Domain Models & Strict Schema Validation
 - **Unlocked:** 2026-11-19
 - **What You Accomplished:**
