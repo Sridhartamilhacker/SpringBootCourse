@@ -188,8 +188,8 @@ flowchart LR
   - Save master `Transaction` record.
 
 ### Phase 5: 24-Hour Idempotency Engine & DTOs
-- [ ] Strict DTOs (`CreateWalletRequest`, `DepositRequest`, `WithdrawRequest`, `TransferRequest`, `TransactionResponse`).
-- [ ] Idempotency Service:
+- [x] Strict DTOs (`CreateWalletRequest`, `DepositRequest`, `WithdrawRequest`, `TransferRequest`, `TransactionResponse`).
+- [x] Idempotency Service:
   - Intercept `Idempotency-Key` header.
   - Return cached result if key was recorded within the last 24 hours.
 

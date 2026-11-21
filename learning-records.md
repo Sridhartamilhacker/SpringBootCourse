@@ -185,3 +185,12 @@
   - Linked internal System Treasury (`TREASURY_USD`) for automated deposit and withdrawal routing.
   - Diagnosed and resolved Spring CGLIB proxy self-invocation caveat by explicitly decorating `deposit` and `withdraw` with `@Transactional`.
 - **Next Mission:** Phase 5: 24-Hour Distributed Idempotency Engine & DTO Contracts.
+### Session 15 — 2026-11-20: ApexWallet Phase 5: Distributed Idempotency Engine & DTO Contracts
+- **Milestone 15 Completed:** DTO Contracts & Distributed Idempotency Engine.
+- **Hands-On Work:**
+  - Designed and authored request and response DTOs using Java `record`s in `com.apex.wallet.dto`.
+  - Diagnosed and fixed autocomplete bug (`@DecimalMax` vs `@DecimalMin`) on transaction request payloads.
+  - Added null-safe relationship mapping in `WalletResponse.fromEntity`.
+  - Implemented `IdempotencyService` evaluating 24-hour expiration windows and dynamic Jackson JSON serialization.
+  - Debugged time comparison logic (`expiredAt.isBefore(now)` vs `isAfter(now)`) ensuring proper replay of valid idempotency records.
+- **Next Mission:** Phase 6: Public REST Controllers, RFC 7807 Error Handling & Swagger UI.

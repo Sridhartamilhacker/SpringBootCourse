@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
-import javax.swing.text.html.Option;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
@@ -21,7 +20,7 @@ public class IdempotencyService {
     public Optional<IdempotencyRecord> findRecord(String idempotencyKey){
         Optional<IdempotencyRecord> record = idempotencyRepository.findById(idempotencyKey);
         if(record.isPresent()){
-            if(record.get().getExpiredAt().isAfter(OffsetDateTime.now())){
+            if(record.get().getExpiredAt().isBefore(OffsetDateTime.now())){
                 idempotencyRepository.deleteById(idempotencyKey);
                 return Optional.empty();
             }

@@ -2,6 +2,14 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🛡️ Milestone 15: The API Architect — DTO Contracts & Distributed Idempotency
+- **Unlocked:** 2026-11-20
+- **What You Accomplished:**
+  - Designed clean, immutable Request and Response DTOs using modern Java `record`s.
+  - Decoupled internal JPA entities from public API contracts, eliminating mass-assignment vulnerabilities and lazy-loading circular serialization.
+  - Implemented exact Bean Validation (`@NotBlank`, `@NotNull`, `@DecimalMin`).
+  - Authored `IdempotencyService` with time-based 24-hour expiration evaluation, dynamic Jackson serialization, and automatic response replay.
+
 ### ⚖️ Milestone 14: The Ledger Engineer — Double-Entry Accounting & Financial Integrity
 - **Unlocked:** 2026-11-20
 - **What You Accomplished:**
