@@ -29,7 +29,7 @@ public class UserService {
         if(userRepository.existsByEmail(req.email())){
             throw new UserAlreadyExists("The user with email " + req.email() + " already exists");
         }
-        User newuser = new User(req.email(),req.fullName());
+        User newuser = new User(req.email(),req.fullName(),req.passwordHash(),req.userRole());
         return userRepository.save(newuser);
     }
     public UserSummaryResponse findUserSummaryById(UUID userId){
