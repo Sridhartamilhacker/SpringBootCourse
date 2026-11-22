@@ -2,6 +2,15 @@
 
 *Achievements unlocked by building and debugging real code.*
 
+### 🌐 Milestone 16: The System Gatekeeper — Public REST API & RFC 7807 Error Contracts
+- **Unlocked:** 2026-11-22
+- **What You Accomplished:**
+  - Implemented standard machine-readable RFC 7807 `ProblemDetail` responses across business errors, validation failures, and optimistic lock collisions.
+  - Implemented `WalletController` and `PaymentController` with zero logic leakage outside service boundaries.
+  - Verified live distributed idempotency replay: identical network retry returned cached response, preventing duplicate credit and protecting ledger parity.
+  - Verified atomic double-entry money transfers and chronological statement retrieval.
+  - Enforced wallet lifecycle guards (`FROZEN` / `ACTIVE`).
+
 ### 🛡️ Milestone 15: The API Architect — DTO Contracts & Distributed Idempotency
 - **Unlocked:** 2026-11-20
 - **What You Accomplished:**

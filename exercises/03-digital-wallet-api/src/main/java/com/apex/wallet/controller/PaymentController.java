@@ -77,8 +77,13 @@ public class PaymentController {
             Optional<IdempotencyRecord> cached = idempotencyService.findRecord(idempotencyKey);
             if(cached.isPresent()){
                 IdempotencyRecord record = cached.get();
-                TransactionResponse response = objectMapper.readValue(record.getResponseBody(), TransactionResponse.class);
-                return ResponseEntity.status(record.getResponseStatus()).body(response);
+                try {
+                    TransactionResponse response = objectMapper.readValue(record.getResponseBody(), TransactionResponse.class);
+                    return ResponseEntity.status(record.getResponseStatus()).body(response);
+                }
+                catch (Exception ex){
+                    throw new RuntimeException("Failed to deserialize cached idempotency response", ex);
+                }
             }
         }
         return null;

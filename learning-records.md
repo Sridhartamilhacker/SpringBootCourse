@@ -194,3 +194,18 @@
   - Implemented `IdempotencyService` evaluating 24-hour expiration windows and dynamic Jackson JSON serialization.
   - Debugged time comparison logic (`expiredAt.isBefore(now)` vs `isAfter(now)`) ensuring proper replay of valid idempotency records.
 - **Next Mission:** Phase 6: Public REST Controllers, RFC 7807 Error Handling & Swagger UI.
+### Session 16 — 2026-11-22: ApexWallet Phase 6: Public REST Controllers & RFC 7807 Error Handling
+- **Milestone 16 Completed:** Public REST Controllers, RFC 7807 Error Contracts & Live Ledger Verification.
+- **Hands-On Work:**
+  - Authored `GlobalExceptionHandler` with RFC 7807 `ProblemDetail` mapping for domain exceptions (`404`, `400`, `409 Conflict` for optimistic locks).
+  - Authored `WalletController` exposing user wallet provisioning, balance inspection, and state transitions (`ACTIVE`, `FROZEN`, `CLOSED`).
+  - Authored `PaymentController` orchestrating deposits, withdrawals, transfers, and chronological ledger statement queries.
+  - Built custom `checkCachedResponse` pipeline inside controller to replay 24-hour idempotent responses directly from Jackson serialization.
+  - Verified live via cURL and Swagger UI (`/swagger-ui.html`):
+    - Provisioned users and dual USD wallets.
+    - Deposited $500 with `idempotency-key: key-dep-001`.
+    - Replayed identical deposit request: received instant cache replay, confirmed balance remained exactly $500.0000 with zero double-crediting.
+    - Executed $150 P2P transfer: atomic balance movements ($350 and $150).
+    - Executed $50 withdrawal to Treasury: verified immutable debit entry and running balance tracking.
+    - Verified RFC 7807 errors on insufficient balance (`400 Bad Request`) and payload validation failures with structured `invalidParams` map.
+    - Verified frozen wallet rejection guard (`WalletInactiveException`).

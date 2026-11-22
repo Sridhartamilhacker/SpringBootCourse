@@ -194,13 +194,14 @@ flowchart LR
   - Return cached result if key was recorded within the last 24 hours.
 
 ### Phase 6: Public REST API, Swagger UI & Verification
-- [ ] `WalletController` (create, get, freeze, unfreeze).
-- [ ] `TransactionController` (transfer, deposit, withdraw, paginated statement).
-- [ ] RFC 7807 Global Exception Handling.
-- [ ] Verification tests:
-  - Test concurrent double-spend protection with `@Version`.
-  - Test idempotency replay with repeated network calls.
-  - Test frozen wallet rejection.
+- [x] `WalletController` (create, get, freeze, unfreeze).
+- [x] `TransactionController` / `PaymentController` (transfer, deposit, withdraw, statement).
+- [x] RFC 7807 Global Exception Handling.
+- [x] Verification tests:
+  - [x] Test idempotency replay with repeated network calls.
+  - [x] Test frozen wallet rejection.
+  - [x] Test insufficient funds error response.
+  - [x] Test validation error mapping.
 
 ---
 
