@@ -1,6 +1,7 @@
 package com.apex.wallet.service;
 
 import com.apex.wallet.dto.CreateUserRequest;
+import com.apex.wallet.dto.UserSummaryResponse;
 import com.apex.wallet.exception.UserAlreadyExists;
 import com.apex.wallet.exception.UserNotFoundException;
 import com.apex.wallet.model.User;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -31,6 +31,10 @@ public class UserService {
         }
         User newuser = new User(req.email(),req.fullName());
         return userRepository.save(newuser);
+    }
+    public UserSummaryResponse findUserSummaryById(UUID userId){
+        return userRepository.findUserById(userId).orElseThrow(() ->
+                new UserNotFoundException("User not found with ID" + userId));
     }
 
     public List<User> getAllUsers(){

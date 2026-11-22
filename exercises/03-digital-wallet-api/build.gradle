@@ -64,6 +64,19 @@ dependencies {
 
 }
 
-tasks.named('test'){
+tasks.named('test') {
     useJUnitPlatform()
+}
+
+def byteBuddyAgentFiles = files({
+    configurations.testRuntimeClasspath.filter { it.name.contains("byte-buddy-agent") }
+})
+
+tasks.withType(Test).configureEach {
+    jvmArgumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            byteBuddyAgentFiles.files.collect { "-javaagent:${it.absolutePath}" }
+        }
+    })
 }
