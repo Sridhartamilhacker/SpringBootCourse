@@ -1,7 +1,6 @@
 package com.apex.wallet.security;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -10,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
-import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
@@ -19,9 +16,9 @@ import java.util.function.Function;
 @Service 
 public class JwtService {
 
-    @Value("{$application.security.jwt.secret-key}")
+    @Value("${security.jwt.secret-key}")
     private String secretKey;
-    @Value("${application.security.jwt.expiration-ms")
+    @Value("${security.jwt.expiration-ms}")
     private Long jwtExpirationsMs;
 
     public String extractUsername(String token){
