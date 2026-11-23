@@ -209,3 +209,16 @@
     - Executed $50 withdrawal to Treasury: verified immutable debit entry and running balance tracking.
     - Verified RFC 7807 errors on insufficient balance (`400 Bad Request`) and payload validation failures with structured `invalidParams` map.
     - Verified frozen wallet rejection guard (`WalletInactiveException`).
+### Session 17 — 2026-11-22: Spring Security 6 Internals (DFP & Filter Chain Routine)
+- **Milestone 17 Completed:** Spring Security 6 Internals, DelegatingFilterProxy (DFP) & Filter Chain Routine.
+- **Conceptual & Architectural Work:**
+  - Deconstructed the fundamental boundary between the Jakarta EE Servlet container (Tomcat) and the Spring IoC `ApplicationContext`.
+  - Explored `DelegatingFilterProxy` lazy bean resolution and delegation to `springSecurityFilterChain`.
+  - Analyzed `FilterChainProxy` multi-chain pattern matching (`SecurityFilterChain`).
+  - Traced the complete request routine: CORS -> CSRF (stateless disabled) -> Custom JWT Filter -> UsernamePasswordAuthenticationFilter -> SecurityContextHolderAwareRequestFilter -> ExceptionTranslationFilter (401/403) -> AuthorizationFilter -> DispatcherServlet.
+  - Deconstructed `SecurityContextHolder` `MODE_THREADLOCAL` lifecycle and why `SecurityContextHolder.clearContext()` is compulsory in thread pools.
+- **Artifacts Generated:**
+  - Local Note: `notes/12-spring-security-and-dfp-internals.md`
+  - Notion Note: Published to `https://app.notion.com/p/4203bf92ecc881c286f6e62bfb416034?pvs=204` under "🌱 Spring Boot API Lab"
+- **Next Mission:** ApexWallet Phase 7: Step 1 — Flyway Migration V3 (Database Schema Evolution for Auth).
+
