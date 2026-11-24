@@ -6,6 +6,10 @@ logging:
     org.flywaydb: DEBUG
     org.springframework.jdbc: DEBUG
 
+security:
+  jwt:
+    secret-key: dG90YWxwcmFjdGljYWxzZWVuaW5zdGFuY2Vjb25uZWN0ZWRwZW5jaWxiaWdnZXJwYXI=
+    expiration-ms: 86400000
 
 spring:
   application:

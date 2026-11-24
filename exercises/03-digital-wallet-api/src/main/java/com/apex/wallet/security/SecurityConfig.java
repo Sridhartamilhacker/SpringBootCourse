@@ -1,5 +1,6 @@
 package com.apex.wallet.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,11 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
-
+    private final JwtAuthenticationFilter authenticationFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
         return http.csrf(AbstractHttpConfigurer::disable)
@@ -24,7 +27,9 @@ public class SecurityConfig {
                     req.requestMatchers("/api/auth/**","/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**", "/actuator/health")
                             .permitAll();
                     req.anyRequest().authenticated();
-                }).build();
+                })
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
 
     @Bean
