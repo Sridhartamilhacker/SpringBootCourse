@@ -10,20 +10,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.OffsetDateTime;
-import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
-
-import org.jspecify.annotations.Nullable;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
 @Setter
 @Table(name="users")
 @Entity
-public class User implements UserDetails{
+public class User {
     @Id
     private UUID id = UUID.randomUUID();
     @Column(nullable = false, unique = true)
@@ -49,28 +42,4 @@ public class User implements UserDetails{
         this.passwordHash = passwordHash;
         this.userRole = userRole;
     }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(userRole.name()));
-    }
-
-    @Override
-    public @Nullable String getPassword() {
-        return this.passwordHash;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.email;
-    }  
-    @Override 
-    public boolean isAccountNonExpired(){return true;}
-    @Override 
-    public boolean isAccountNonLocked(){return true;}
-    @Override 
-    public boolean isCredentialsNonExpired(){return true;}
-    @Override 
-    public boolean isEnabled() {return true;}
-
 }
