@@ -1,5 +1,6 @@
 package com.apex.wallet.security;
 
+import com.apex.wallet.model.Role;
 import com.apex.wallet.model.User;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -52,4 +53,5 @@ public class SecurityUser implements UserDetails {
     public UUID getUserId(){
         return user.getId();
     }
+    public Role getRole(){return user.getUserRole();}
 }

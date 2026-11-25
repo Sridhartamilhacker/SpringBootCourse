@@ -1,5 +1,6 @@
 package com.apex.wallet.security;
 
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,26 @@ public class SecurityConfig {
                             .permitAll();
                     req.anyRequest().authenticated();
                 })
+                .exceptionHandling(ex ->
+                        ex.authenticationEntryPoint((req, res, e)->{
+                            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                            res.setContentType("application/problem+json");
+                            res.getWriter().write("""
+                                    {
+                                    "type" : "about:blank",
+                                    "title" : "Unauthorized",
+                                    "status" : 401,
+                                    "detail" : "Authentication required or token invalid"
+                                    }
+                                    """);
+                        })
+                        .accessDeniedHandler((req,res,e) -> {
+                            res.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            res.setContentType("application/problem+json");
+                            res.getWriter().write("""
+                                    {"type":"about:blank","title":"Forbidden","status":403,
+                                     "detail":"Insufficient permissions"}""");
+                        }))
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

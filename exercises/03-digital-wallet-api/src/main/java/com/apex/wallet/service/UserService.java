@@ -1,8 +1,7 @@
 package com.apex.wallet.service;
 
-import com.apex.wallet.dto.CreateUserRequest;
+import com.apex.wallet.dto.UserResponse;
 import com.apex.wallet.dto.UserSummaryResponse;
-import com.apex.wallet.exception.UserAlreadyExists;
 import com.apex.wallet.exception.UserNotFoundException;
 import com.apex.wallet.model.User;
 import com.apex.wallet.repository.UserRepository;
@@ -19,25 +18,19 @@ import java.util.UUID;
 public class UserService {
     private final UserRepository userRepository;
 
-    public User getUserById(UUID userId){
-        return userRepository.findById(userId).orElseThrow(() ->
+    public UserResponse getUserById(UUID userId){
+        User user=  userRepository.findById(userId).orElseThrow(() ->
                 new UserNotFoundException("User not found with ID" + userId));
+        return UserResponse.fromEntity(user);
     }
 
-    @Transactional
-    public User createUser(CreateUserRequest req){
-        if(userRepository.existsByEmail(req.email())){
-            throw new UserAlreadyExists("The user with email " + req.email() + " already exists");
-        }
-        User newuser = new User(req.email(),req.fullName(),req.password(),req.role());
-        return userRepository.save(newuser);
-    }
     public UserSummaryResponse findUserSummaryById(UUID userId){
         return userRepository.findUserById(userId).orElseThrow(() ->
                 new UserNotFoundException("User not found with ID" + userId));
     }
 
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
+    public List<UserResponse> getAllUsers(){
+
+        return userRepository.findAll().stream().map(UserResponse::fromEntity).toList();
     }
 }

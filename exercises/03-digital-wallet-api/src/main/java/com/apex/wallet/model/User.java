@@ -35,11 +35,10 @@ public class User {
 
     }
 
-    public User(String email, String fullName, String passwordHash, Role userRole){
+    public User(String email, String fullName, String passwordHash){
         this.email = email;
         this.fullName = fullName;
         this.createdAt = OffsetDateTime.now();
         this.passwordHash = passwordHash;
-        this.userRole = userRole;
     }
 }

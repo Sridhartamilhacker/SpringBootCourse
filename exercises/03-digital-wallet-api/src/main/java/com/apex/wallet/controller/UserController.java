@@ -1,18 +1,15 @@
 package com.apex.wallet.controller;
 
-import com.apex.wallet.dto.CreateUserRequest;
+import com.apex.wallet.dto.UserResponse;
 import com.apex.wallet.dto.UserSummaryResponse;
 import com.apex.wallet.model.User;
 import com.apex.wallet.repository.UserRepository;
 import com.apex.wallet.service.UserService;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,8 +21,8 @@ public class UserController {
     private final UserRepository userRepository;
 
     @GetMapping("{userId}")
-    public ResponseEntity<User> getUserById(@PathVariable UUID userId){
-        User user =  userService.getUserById(userId);
+    public ResponseEntity<UserResponse> getUserById(@PathVariable UUID userId){
+        UserResponse user =  userService.getUserById(userId);
         return ResponseEntity.ok(user);
     }
     @GetMapping("{userId}/summary")
@@ -40,17 +37,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        return ResponseEntity.ok(userService.getAllUsers());
-    }
+    public ResponseEntity<List<UserResponse>> getAllUsers(){
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody @Valid CreateUserRequest req){
-        User newUser = userService.createUser(req);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(newUser.getId())
-                .toUri();
-        return ResponseEntity.created(location).body(newUser);
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.naming.AuthenticationException;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +66,14 @@ public class GlobalExceptionHandler {
                 ex.getMessage(),
                 Instant.now());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(problem);
+    }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ProblemDetail> handleAuthFailure(AuthenticationException ex){
+        ProblemDetail problem = buildProblem(HttpStatus.UNAUTHORIZED,
+                "Authentication Failed",
+                "Invalid email or password",
+                Instant.now());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(problem);
     }
 
     private static ProblemDetail buildProblem(HttpStatus httpStatus,String title, String message,Instant timeStamp){

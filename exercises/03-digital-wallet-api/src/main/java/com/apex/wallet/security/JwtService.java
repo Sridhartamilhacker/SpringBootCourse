@@ -26,6 +26,8 @@ public class JwtService {
     @Value("${security.jwt.expiration-ms}")
     private Long expiration;
 
+    private final SecretKey signingKey = getSigningKey();
+
 
     public SecretKey getSigningKey(){
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
@@ -45,23 +47,13 @@ public class JwtService {
                 subject(userDetails.getUsername())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plusMillis(expiration)))
-                .signWith(getSigningKey())
+                .signWith(signingKey)
                 .compact();
     }
 
+
     public Claims extractClaim(String token){
-        return Jwts.parser().verifyWith(getSigningKey()).build().parseSignedClaims(token).getPayload();
+        return Jwts.parser().verifyWith(signingKey).build().parseSignedClaims(token).getPayload();
     }
 
-    public String extractUserName(String token){
-        return extractClaim(token).getSubject();
-    }
-    public Date extractExpireDate(String token){
-        return extractClaim(token).getExpiration();
-    }
-    public boolean isValidUser(String token, UserDetails userDetails){
-        String username = extractUserName(token);
-        Date expireDate = extractExpireDate(token);
-        return userDetails.getUsername().equals(username) && !expireDate.before(new Date());
-    }
 }
